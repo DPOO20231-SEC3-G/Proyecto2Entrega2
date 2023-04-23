@@ -1,0 +1,14 @@
+Reserva 3
+Habitación suite para 9 personas.
+Rango de fechas 2023/05/01 - 2023/05/03.
+Precio por la habitacion dadas las tarifas: 270000.0
+    Huesped 1:
+        Nombre:Nicolas
+        Documento:1092850219
+        Email:n.ruizp2@uniandes.edu.co
+        Celular:3188490365
+    Servicios Consumidos:
+    Productos consumidos del restaurante:
+        Cerveza importada: 500000.0$
+TOTAL A PAGAR: 770000.0$
+Los Productos con * ya fueron pagados y no son contados en el precio final.
