@@ -37,7 +37,7 @@ public class Hotel {
         this.controladorServicios = new ControladorServicios();
     }
     public void cargarUsuarios() throws IOException{
-        File archivo_usuarios = new File("./Datos/Usuarios.txt");
+        File archivo_usuarios = new File("./Entrega2Proyecto2/Datos/Usuarios.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(archivo_usuarios))) {
             String st;
             br.readLine();
@@ -73,7 +73,7 @@ public class Hotel {
             huespedes.add(controladorHuespedes.getHuesped(info.get(i).get(0),documento, "-", "-", false));
             id += documento;
             }
-        File rutaFactura = new File("./Logs/" + id +".txt");
+        File rutaFactura = new File("./Entrega2Proyecto2/Logs/" + id +".txt");
         try {
             rutaFactura.createNewFile();
         } catch (IOException e) {
@@ -93,7 +93,7 @@ public class Hotel {
         return controladorHabitaciones.consultarInventario();
     }
     public void GenerarFacturaReserva(Reserva reserva) {
-        File rutaFactura = new File("./Facturas/" + Integer.toString(reserva.getIdReserva())+".txt");
+        File rutaFactura = new File("./Entrega2Proyecto2/Facturas/" + Integer.toString(reserva.getIdReserva())+".txt");
 		try {
             rutaFactura.createNewFile();
         } catch (IOException e) {
@@ -143,10 +143,10 @@ public class Hotel {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        cargarMenuRestauranteYServicios("./Datos/Servicios.txt","./Datos/MenuRestaurante.txt");
+        cargarMenuRestauranteYServicios("./Entrega2Proyecto2/Datos/Servicios.txt","./Entrega2Proyecto2/Datos/MenuRestaurante.txt");
         controladorHuespedes.cargarHuespedes();
-        String rutaHabitaciones = "./Datos/Habitaciones.txt";
-        String rutaCamas = "./Datos/Camas.txt";
+        String rutaHabitaciones = "./Entrega2Proyecto2/Datos/Habitaciones.txt";
+        String rutaCamas = "./Entrega2Proyecto2/Datos/Camas.txt";
         File ruta_archivoHabitaciones = new File(rutaHabitaciones);
         File ruta_archivoCamas = new File(rutaCamas);
         this.controladorHabitaciones.cargarArchivoHabitaciones(ruta_archivoHabitaciones,ruta_archivoCamas);
@@ -225,7 +225,7 @@ public class Hotel {
         }
 
         try {
-            Path path = Paths.get("./Datos/Reservas.txt");
+            Path path = Paths.get("./Entrega2Proyecto2/Datos/Reservas.txt");
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             lines.set(reserva.getIdReserva() + 1, reserva.getIdReserva() + ";" + reserva.getHabitacion().getId() + ";" + sdf.format(fechaInicial) + ";" + sdf.format(reserva.getFechas().getFechaFinal()) + ";" + huespedesString + ";"+reserva.isCancelado()+";" + strServicios +";" + strMenu);
 

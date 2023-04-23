@@ -162,7 +162,7 @@ public class ControladorHabitaciones {
         return retorno;
     }
     public void cargarTarifas() throws FileNotFoundException, IOException, ParseException{
-        try (BufferedReader br = new BufferedReader(new FileReader("./Datos/Tarifas.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyecto2/Datos/Tarifas.txt"))) {
             String st;
             br.readLine();
             while ((st = br.readLine()) != null) {

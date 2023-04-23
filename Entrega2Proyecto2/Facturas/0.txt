@@ -1,16 +1,26 @@
 Reserva 0
 Habitación estandar para 6 personas.
-Rango de fechas 2023/04/23 - 2023/04/24.
-Precio por la habitacion dadas las tarifas: 1800000.0
+Rango de fechas 2023/04/06 - 2023/04/09.
+Precio por la habitacion dadas las tarifas: 2450000.0
     Huesped 1:
-        Nombre:harold
-        Documento:1092
-        Email:a
-        Celular:a
+        Nombre:Nicolas
+        Documento:1092850219
+        Email:n.ruizp2@uniandes.edu.co
+        Celular:3188490365
+    Huesped 2:
+        Nombre:Harold
+        Documento:1029485930
+        Email:h.coca
+        Celular:3192838593
+    Huesped 3:
+        Nombre:Lindsy
+        Documento:10294382828
+        Email:l.ar
+        Celular:10334922949
     Servicios Consumidos:
-        Clases de natación*: 2.0$
-        Sesión de jacuzzi*: 50000.0$
+        Sesión de maquillaje*: 60000.0$
+        Tour de compras: 20000.0$
     Productos consumidos del restaurante:
-        Sándwich mixto*: 15000.0$
-TOTAL A PAGAR: 1815000.0$
+        Coctel del día: 70000.0$
+TOTAL A PAGAR: 2540000.0$
 Los Productos con * ya fueron pagados y no son contados en el precio final.

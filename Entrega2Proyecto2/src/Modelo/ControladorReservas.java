@@ -184,7 +184,7 @@ public class ControladorReservas {
         }
     public void cargarReservas(ControladorHabitaciones controladorHabitaciones, ControladorHuespedes controladorHuespedes,
         ControladorServicios controladorServicios) throws IOException, ParseException{
-        try (BufferedReader br = new BufferedReader(new FileReader("./Datos/Reservas.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyecto2/Datos/Reservas.txt"))) {
             String st;
             br.readLine();
             while ((st = br.readLine()) != null) {

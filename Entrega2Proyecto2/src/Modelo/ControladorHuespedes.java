@@ -16,7 +16,7 @@ public class ControladorHuespedes {
         this.huespedes = new ArrayList<Huesped>();
     }
     public void cargarHuespedes() throws FileNotFoundException, IOException{
-        try (BufferedReader br = new BufferedReader(new FileReader("./Datos/Huespedes.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyecto2/Datos/Huespedes.txt"))) {
             String st;
             br.readLine();
             while ((st = br.readLine()) != null) {
