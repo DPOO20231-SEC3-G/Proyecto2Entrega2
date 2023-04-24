@@ -61,3 +61,5 @@ id;tamaño;cantidadPersonas;soloNiños
 17;queen;3;false
 21;doble;2;false
 21;individual;1;true
+22;individual;1;false23;queen;3;false
+23;queen;3;true

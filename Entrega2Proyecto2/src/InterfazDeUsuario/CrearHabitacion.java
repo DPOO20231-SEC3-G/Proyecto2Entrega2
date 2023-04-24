@@ -100,6 +100,7 @@ public class CrearHabitacion extends JFrame implements ActionListener{
             }
 
             controladorHabitaciones.crearHabitacion(ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion, infoCamas);
+            setVisible(false);
 
         }
     }

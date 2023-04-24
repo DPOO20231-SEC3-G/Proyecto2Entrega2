@@ -20,3 +20,5 @@ id;ubicacion;balcon;vista;cocinaIntegrada;tipoHabitacion
 19;120;true;false;true;suite
 20;121;false;0;false;estandar
 21;203;true;true;false;suite
+22;304;false;true;false;estandar
+23;506;false;true;false;suite doble
