@@ -22,14 +22,10 @@ public class CrearHabitacion extends JFrame implements ActionListener{
     private JTextField textFieldCamas;
     private JComboBox<String> comboBox;
 
-    private static ControladorHabitaciones controladorHabitaciones;
-
-    public static void main(String[] args) {
-        new CrearHabitacion(controladorHabitaciones);
-    }
+    private ControladorHabitaciones controladorHabitaciones;
 
     public CrearHabitacion(ControladorHabitaciones controladorHabitaciones) {
-
+        this.controladorHabitaciones = controladorHabitaciones;
 
         BoxLayout layout = new BoxLayout(getContentPane(), BoxLayout.Y_AXIS);
         setLayout(layout);
