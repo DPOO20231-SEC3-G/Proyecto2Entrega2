@@ -32,11 +32,12 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setTitle("Login Form");
+		setTitle("Iniciar Sesion");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Crear el panel para los campos de usuario y contraseña
-        JPanel inputPanel = new JPanel(new GridLayout(2, 2));
+        JPanel inputPanel = new JPanel(new GridLayout(3, 3));
+		inputPanel.add(new JTextArea("Bienvenido al sistema de"));
+		inputPanel.add(new JTextArea("administracion de hoteles"));
         inputPanel.add(new JLabel("Usuario:"));
         userField = new JTextField();
         inputPanel.add(userField);
@@ -44,17 +45,16 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
         passField = new JPasswordField();
         inputPanel.add(passField);
 
-        // Crear el botón de login
         loginButton = new JButton("Iniciar Sesion");
         loginButton.addActionListener(this);
 
-        // Agregar los componentes al frame
+
         add(inputPanel, BorderLayout.CENTER);
         add(loginButton, BorderLayout.SOUTH);
 
-        // Configurar el tamaño y la posición del frame
+
         setSize(300, 150);
-        setLocationRelativeTo(null); // Centrar en la pantalla
+        setLocationRelativeTo(null); 
         setVisible(true);
     }
 
@@ -70,10 +70,12 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
 					setVisible(false);
 				}
 				else if(user.getRol().equals("Empleado")){
-					//Frame Empleado
+					new InterfazEmpleado(hotel, user);
+					setVisible(false);
 				}
 				else if(user.getRol().equals("Recepcionista")){
-					//Frame Recepcionista
+					new InterfazRecepcionista(hotel, user);
+					setVisible(false);
 				}
 			}
 			else{

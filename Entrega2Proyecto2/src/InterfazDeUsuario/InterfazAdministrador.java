@@ -17,6 +17,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
     private JButton botonCrearProductoRestaurante;
     private JButton botonConsultarTarifas;
     private JButton botonVerDiagramaOcupacion;
+    private JButton cambiarUsuario;
 
     private Hotel hotel;
 
@@ -28,7 +29,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 
-        JPanel panel = new JPanel(new GridLayout(2, 3, 20, 20));
+        JPanel panel = new JPanel(new GridLayout(2, 4, 20, 20));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); 
         
 
@@ -38,6 +39,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         botonCrearProductoRestaurante = new JButton("Crear producto de restaurante"); botonCrearProductoRestaurante.addActionListener(this);
         botonConsultarTarifas = new JButton("Consultar tarifas sin establecer para el proximo año"); botonConsultarTarifas.addActionListener(this);
         botonVerDiagramaOcupacion = new JButton("Ver diagrama de ocupacion"); botonConsultarTarifas.addActionListener(this);
+        cambiarUsuario = new JButton("Cambiar de usuario"); cambiarUsuario.addActionListener(this);
         
         panel.add(botonCrearHabitacion);
         panel.add(botonCargarTarifaHabitacion);
@@ -45,6 +47,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         panel.add(botonCrearProductoRestaurante);
         panel.add(botonConsultarTarifas);
         panel.add(botonVerDiagramaOcupacion);
+        panel.add(cambiarUsuario);
         
 
         for (Component component : panel.getComponents()) {
@@ -75,6 +78,9 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
             // Acción cuando se presiona el botón "Consultar tarifas sin establecer para el próximo año"
         } else if (e.getSource() == botonVerDiagramaOcupacion) {
             // Acción cuando se presiona el botón "Ver diagrama de ocupación"
+        }   else if(e.getSource() == cambiarUsuario){
+            setVisible(false);
+            new IniciarInterfaz();
         }
     }
 }
