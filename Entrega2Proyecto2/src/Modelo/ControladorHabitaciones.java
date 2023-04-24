@@ -58,20 +58,20 @@ public class ControladorHabitaciones {
                 Cama cama = habitacion.getCamas().get(i);
                 if(i==0){
                 try {
-                    Files.write(Paths.get("Proyecto1Entrega3/Datos/Camas.txt"),(id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),(id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                 } catch (IOException e) {
                     e.printStackTrace();
                 }}
                 else if(i == habitacion.getCamas().size()-1){
                     try {
-                        Files.write(Paths.get("Proyecto1Entrega3/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()+"\n").getBytes(), StandardOpenOption.APPEND );
+                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()+"\n").getBytes(), StandardOpenOption.APPEND );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
                 else{
                     try {
-                        Files.write(Paths.get("Proyecto1Entrega3/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -79,7 +79,7 @@ public class ControladorHabitaciones {
             }
             this.habitaciones.add(habitacion);
             try {
-                Files.write(Paths.get("Proyecto1Entrega3/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()).getBytes(), StandardOpenOption.APPEND );
+                Files.write(Paths.get("Entrega2Proyecto2/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()).getBytes(), StandardOpenOption.APPEND );
             } catch (IOException e) {
                 
                 e.printStackTrace();
@@ -94,7 +94,7 @@ public class ControladorHabitaciones {
                 Tarifa tarifa = new Tarifa(dias, valorTarifa, tipoHabitacion, dateInicial, dateFinal);
                 this.tarifasExistentes.get(tipoHabitacion).add(tarifa);   
                 try {
-                    Files.write(Paths.get("Proyecto1Entrega3/Datos/Tarifas.txt"),("\n"+dias+";"+valorTarifa+";"+tipoHabitacion+";"+fechaInicial+";"+fechaFinal).getBytes(), StandardOpenOption.APPEND );
+                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Tarifas.txt"),("\n"+dias+";"+valorTarifa+";"+tipoHabitacion+";"+fechaInicial+";"+fechaFinal).getBytes(), StandardOpenOption.APPEND );
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
