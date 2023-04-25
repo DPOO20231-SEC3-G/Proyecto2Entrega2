@@ -61,6 +61,7 @@ public class Reserva {
         for(int i=0; i<huespedes.size();i++){
             retorno += "        " + huespedes.get(i).getNombre() + " - " + huespedes.get(i).getDocumento() + "\n";
         }
+        retorno += "Cancelada: " + cancelado + "\n";
         return retorno;
     }
     public String seleccionadorReserva(){

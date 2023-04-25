@@ -58,13 +58,13 @@ public class ControladorHabitaciones {
                 Cama cama = habitacion.getCamas().get(i);
                 if(i==0){
                 try {
-                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),(id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                 } catch (IOException e) {
                     e.printStackTrace();
                 }}
                 else if(i == habitacion.getCamas().size()-1){
                     try {
-                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()+"\n").getBytes(), StandardOpenOption.APPEND );
+                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -197,4 +197,11 @@ public class ControladorHabitaciones {
 
         return precio;
     }
+    public ArrayList<Habitacion> getHabitaciones() {
+        return habitaciones;
+    }
+    public HashMap<String, ArrayList<Tarifa>> getTarifasExistentes() {
+        return tarifasExistentes;
+    }
+    
 }
