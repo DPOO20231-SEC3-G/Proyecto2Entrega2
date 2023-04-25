@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 
-public class CrearHabitacion extends JFrame implements ActionListener{
+public class CrearHabitacion extends JDialog implements ActionListener{
     private JButton botonCerrar;
     private JButton botonCrear;
     private LabelUbicacionCamas labelUbicacion;
@@ -101,6 +101,7 @@ public class CrearHabitacion extends JFrame implements ActionListener{
 
             controladorHabitaciones.crearHabitacion(ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion, infoCamas);
             setVisible(false);
+            JOptionPane.showMessageDialog(rootPane, e, tipoHabitacion, numCamas, null);
 
         }
     }
@@ -150,7 +151,7 @@ public class CrearHabitacion extends JFrame implements ActionListener{
 
         add(comboBox1); add(comboBox2); add(checkBoxNiños);
 
-        JOptionPane.showMessageDialog(null, this, "Información Cama" + n, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Habitacion creada exitosamente");
     
         }
 

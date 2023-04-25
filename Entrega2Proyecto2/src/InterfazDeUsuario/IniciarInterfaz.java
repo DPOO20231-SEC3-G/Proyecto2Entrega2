@@ -36,8 +36,10 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel inputPanel = new JPanel(new GridLayout(3, 3));
-		inputPanel.add(new JTextArea("Bienvenido al sistema de"));
-		inputPanel.add(new JTextArea("administracion de hoteles"));
+		JTextArea b = new JTextArea("Bienvenido al sistema de"); b.setEditable(false);
+		JTextArea a = new JTextArea("administracion de hoteles"); a.setEditable(false);
+		inputPanel.add(b);
+		inputPanel.add(a);
         inputPanel.add(new JLabel("Usuario:"));
         userField = new JTextField();
         inputPanel.add(userField);
