@@ -78,7 +78,8 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         } else if (e.getSource() == botonCrearProductoRestaurante) {
             // Acción cuando se presiona el botón "Crear producto de restaurante"
         } else if (e.getSource() == botonConsultarTarifas) {
-            // Acción cuando se presiona el botón "Consultar tarifas sin establecer para el próximo año"
+            ConsultarTarifas consultarTarifas =  new ConsultarTarifas();
+            consultarTarifas.setVisible(true);
         } else if (e.getSource() == botonVerDiagramaOcupacion) {
             // Acción cuando se presiona el botón "Ver diagrama de ocupación"
         }   else if(e.getSource() == cambiarUsuario){
