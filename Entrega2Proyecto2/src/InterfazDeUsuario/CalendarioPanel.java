@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
+
 import javax.swing.JPanel;
 
 public class CalendarioPanel extends JPanel {
@@ -80,15 +81,15 @@ public class CalendarioPanel extends JPanel {
 
                     if(mapTarifas.get("estandar").get(index) == false){
                         numDivisiones ++;
-                        colores.add(Color.BLUE);
+                        colores.add(Color.CYAN);
                     }
                     if(mapTarifas.get("suite").get(index) == false){
                         numDivisiones ++;
-                        colores.add(Color.DARK_GRAY);
+                        colores.add(Color.RED);
                     }
                     if(mapTarifas.get("suite doble").get(index) == false){
                         numDivisiones ++;
-                        colores.add(Color.ORANGE);
+                        colores.add(Color.PINK);
                     }
                     index++;
                     if(numDivisiones == 0){
@@ -103,7 +104,6 @@ public class CalendarioPanel extends JPanel {
                             desplazamiento ++;
                         }
                     }
-                    
                     g2d.setFont(new Font("Arial", Font.PLAIN, cellSize / 2));
                     String dayStr = String.valueOf(day);
                     int textWidth = g2d.getFontMetrics().stringWidth(dayStr);
@@ -112,6 +112,15 @@ public class CalendarioPanel extends JPanel {
                     int yOffset = (cellSize - textHeight)/4;
                     g2d.setColor(Color.BLACK);
                     g2d.drawString(dayStr, x + xOffset, y - yOffset);
+
+                    Calendar calen = Calendar.getInstance();
+                    int month1 = calen.get(Calendar.MONTH);
+                    int year1 = calen.get(Calendar.YEAR);
+                    int dayof = calen.get(Calendar.DAY_OF_MONTH);
+                    if(month1 == month && year1 == year && day == dayof){
+                        g2d.setColor(Color.BLACK);
+                        g2d.drawRect(x, y - cellSize / 2, cellSize, cellSize);
+                    }
                     day++;
                 }
             }
