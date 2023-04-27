@@ -6,8 +6,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.util.HashMap;
 
 import javax.swing.JPanel;
 
@@ -15,8 +16,13 @@ public class CalendarioPanel extends JPanel {
 
     private int month;
     private int year;
+    private HashMap<String, ArrayList<Boolean>> mapTarifas;
+    private int index;
 
-    public CalendarioPanel(int month, int year) {
+    public CalendarioPanel(int month, int year, HashMap<String, ArrayList<Boolean>> mapTarifas, int index) {
+
+        this.mapTarifas = mapTarifas;
+        this.index = index;
         
         this.month = month;
         this.year = year;
@@ -68,19 +74,52 @@ public class CalendarioPanel extends JPanel {
                 if (row == 0 && col < firstDayOfMonth - 1) {
                 } else if (day > lastDayOfMonth) {
                 } else {
-                    g2d.setColor(Color.BLACK);
-                    g2d.drawRect(x, y - cellSize / 2, cellSize, cellSize);
+
+                    ArrayList<Color> colores = new ArrayList<Color>();
+                    int numDivisiones= 0;
+
+                    if(mapTarifas.get("estandar").get(index) == false){
+                        numDivisiones ++;
+                        colores.add(Color.BLUE);
+                    }
+                    if(mapTarifas.get("suite").get(index) == false){
+                        numDivisiones ++;
+                        colores.add(Color.DARK_GRAY);
+                    }
+                    if(mapTarifas.get("suite doble").get(index) == false){
+                        numDivisiones ++;
+                        colores.add(Color.ORANGE);
+                    }
+                    index++;
+                    if(numDivisiones == 0){
+                        g2d.setColor(Color.GREEN);
+                        g2d.fillRect(x, y - cellSize / 2, cellSize, cellSize);
+                    }
+                    else{
+                        int desplazamiento = 0;
+                        for(int i=0; i < colores.size();i++){
+                            g2d.setColor(colores.get(i));
+                            g2d.fillRect(x + (desplazamiento*cellSize/numDivisiones), y - cellSize / 2, cellSize/numDivisiones, cellSize);
+                            desplazamiento ++;
+                        }
+                    }
+                    
                     g2d.setFont(new Font("Arial", Font.PLAIN, cellSize / 2));
                     String dayStr = String.valueOf(day);
                     int textWidth = g2d.getFontMetrics().stringWidth(dayStr);
                     int textHeight = g2d.getFontMetrics().getHeight();
                     int xOffset = (cellSize - textWidth) / 2;
                     int yOffset = (cellSize - textHeight)/4;
+                    g2d.setColor(Color.BLACK);
                     g2d.drawString(dayStr, x + xOffset, y - yOffset);
                     day++;
                 }
             }
         }
+    }
+
+    public int getIndex(){
+        return index;
     }
     
 }

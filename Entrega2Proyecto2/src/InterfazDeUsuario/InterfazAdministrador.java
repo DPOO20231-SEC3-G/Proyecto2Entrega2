@@ -78,7 +78,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         } else if (e.getSource() == botonCrearProductoRestaurante) {
             // Acción cuando se presiona el botón "Crear producto de restaurante"
         } else if (e.getSource() == botonConsultarTarifas) {
-            ConsultarTarifas consultarTarifas =  new ConsultarTarifas();
+            ConsultarTarifas consultarTarifas =  new ConsultarTarifas(hotel.getControladorHabitaciones());
             consultarTarifas.setVisible(true);
         } else if (e.getSource() == botonVerDiagramaOcupacion) {
             // Acción cuando se presiona el botón "Ver diagrama de ocupación"

@@ -18,10 +18,13 @@ import java.util.HashMap;
 public class ControladorHabitaciones {
     private ArrayList<Habitacion> habitaciones;
     private HashMap<String,ArrayList<Tarifa>> tarifasExistentes;
-    private ArrayList<Boolean> arrayTarifas;
+    private HashMap<String,ArrayList<Boolean>> mapTarifas;
 
     public ControladorHabitaciones(){
-        this.arrayTarifas = new ArrayList<Boolean>();
+        this.mapTarifas = new HashMap<String,ArrayList<Boolean>>();
+        mapTarifas.put("estandar", new ArrayList<Boolean>());
+        mapTarifas.put("suite", new ArrayList<Boolean>());
+        mapTarifas.put("suite doble", new ArrayList<Boolean>());
 
         this.habitaciones = new ArrayList<Habitacion>();
         this.tarifasExistentes = new HashMap<String,ArrayList<Tarifa>>();
@@ -138,8 +141,9 @@ public class ControladorHabitaciones {
                             algunaAplica = true;}}
             if(algunaAplica == false){
                 tarifasSinDefinir.get(keys[key]).add(" "+diaSemana +":"+ sdf.format(hoy.getTime()));}
+                mapTarifas.get(keys[key]).add(algunaAplica);
             }
-            arrayTarifas.add(algunaAplica);
+            
             hoy.add(Calendar.DAY_OF_YEAR, 1);}
         
         String retorno = "";
@@ -207,9 +211,11 @@ public class ControladorHabitaciones {
     public HashMap<String, ArrayList<Tarifa>> getTarifasExistentes() {
         return tarifasExistentes;
     }
-    public ArrayList<Boolean> getArrayTarifas() {
-        return arrayTarifas;
+    public HashMap<String, ArrayList<Boolean>> getMapTarifas() {
+        tarifasSinDefinirProximoAño();
+        return mapTarifas;
     }
+   
 
     
     
