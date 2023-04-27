@@ -159,7 +159,7 @@ public class ControladorReservas {
                         }
                 }
                 try {
-                    Path path = Paths.get("Proyecto1Entrega3/Datos/Reservas.txt");
+                    Path path = Paths.get("Proyecto2Entrega1/Datos/Reservas.txt");
                     List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
                     lines.set(id + 1, id + ";" + reserva.getHabitacion().getId() + ";" + sdf.format(fechaInicial) + ";" + sdf.format(reserva.getFechas().getFechaFinal()) + ";" + huespedesString + ";true;" + strServicios +";" + strMenu);
 

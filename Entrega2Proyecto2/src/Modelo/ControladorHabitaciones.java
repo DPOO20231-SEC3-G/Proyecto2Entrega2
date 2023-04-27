@@ -18,8 +18,11 @@ import java.util.HashMap;
 public class ControladorHabitaciones {
     private ArrayList<Habitacion> habitaciones;
     private HashMap<String,ArrayList<Tarifa>> tarifasExistentes;
+    private ArrayList<Boolean> arrayTarifas;
 
     public ControladorHabitaciones(){
+        this.arrayTarifas = new ArrayList<Boolean>();
+
         this.habitaciones = new ArrayList<Habitacion>();
         this.tarifasExistentes = new HashMap<String,ArrayList<Tarifa>>();
         this.tarifasExistentes.put("estandar", new ArrayList<Tarifa>());
@@ -117,7 +120,7 @@ public class ControladorHabitaciones {
         tarifasSinDefinir.put("estandar", new ArrayList<String>());
         tarifasSinDefinir.put("suite", new ArrayList<String>());
         tarifasSinDefinir.put("suite doble", new ArrayList<String>());
-
+        boolean algunaAplica = false;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar hoy = Calendar.getInstance();
         hoy.set(Calendar.HOUR_OF_DAY, 0);
@@ -127,7 +130,7 @@ public class ControladorHabitaciones {
         for(int i=0; i<365;i++){
             String diaSemana = numDayToString(hoy.get(Calendar.DAY_OF_WEEK));
             for(int key = 0; key<keys.length;key++){
-                boolean algunaAplica  = false;
+                algunaAplica  = false;
                 for(int pos = 0; pos< tarifasExistentes.get(keys[key]).size();pos++){
                     boolean enRango = tarifasExistentes.get(keys[key]).get(pos).getRangoFechas().fechaEnRango(hoy.getTime()); 
                     boolean aplicaDia = tarifasExistentes.get(keys[key]).get(pos).tarifaAplicaDia(diaSemana);
@@ -136,6 +139,7 @@ public class ControladorHabitaciones {
             if(algunaAplica == false){
                 tarifasSinDefinir.get(keys[key]).add(" "+diaSemana +":"+ sdf.format(hoy.getTime()));}
             }
+            arrayTarifas.add(algunaAplica);
             hoy.add(Calendar.DAY_OF_YEAR, 1);}
         
         String retorno = "";
@@ -203,5 +207,10 @@ public class ControladorHabitaciones {
     public HashMap<String, ArrayList<Tarifa>> getTarifasExistentes() {
         return tarifasExistentes;
     }
+    public ArrayList<Boolean> getArrayTarifas() {
+        return arrayTarifas;
+    }
+
+    
     
 }
