@@ -33,13 +33,21 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); 
         
 
-        botonCrearHabitacion = new JButton("Crear Habitacion para inventario"); botonCrearHabitacion.addActionListener(this);
-        botonCargarTarifaHabitacion = new JButton("Cargar tarifa de habitación"); botonCargarTarifaHabitacion.addActionListener(this);
-        botonCargarTarifaServicio = new JButton("Cargar tarifa de servicio"); botonCargarTarifaServicio.addActionListener(this);
-        botonCrearProductoRestaurante = new JButton("Crear producto de restaurante"); botonCrearProductoRestaurante.addActionListener(this);
-        botonConsultarTarifas = new JButton("Consultar tarifas sin establecer para el proximo año"); botonConsultarTarifas.addActionListener(this);
-        botonVerDiagramaOcupacion = new JButton("Ver diagrama de ocupacion"); botonConsultarTarifas.addActionListener(this);
-        cambiarUsuario = new JButton("Cambiar de usuario"); cambiarUsuario.addActionListener(this);
+        botonCrearHabitacion = new JButton("Crear Habitacion para inventario");
+        botonCrearHabitacion.addActionListener(this);
+        botonCargarTarifaHabitacion = new JButton("Cargar tarifa de habitación");
+        botonCargarTarifaHabitacion.addActionListener(this);
+        botonCargarTarifaServicio = new JButton("Cargar tarifa de servicio");
+        botonCargarTarifaServicio.addActionListener(this);
+        botonCrearProductoRestaurante = new JButton("Crear producto de restaurante");
+        botonCrearProductoRestaurante.addActionListener(this);
+        botonConsultarTarifas = new JButton("Consultar tarifas sin establecer para el proximo año");
+        botonConsultarTarifas.addActionListener(this);
+        botonVerDiagramaOcupacion = new JButton("Ver diagrama de ocupacion");
+        botonVerDiagramaOcupacion.addActionListener(this);
+        cambiarUsuario = new JButton("Cambiar de usuario");
+        cambiarUsuario.addActionListener(this);
+
         
         panel.add(botonCrearHabitacion);
         panel.add(botonCargarTarifaHabitacion);

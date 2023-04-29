@@ -131,7 +131,7 @@ public class ControladorHabitaciones {
         hoy.set(Calendar.SECOND, 0);
         hoy.set(Calendar.MILLISECOND, 0);
         hoy.set(Calendar.DAY_OF_MONTH,1);
-        for(int i=0; i<365;i++){
+        for(int i=0; i<375;i++){
             String diaSemana = numDayToString(hoy.get(Calendar.DAY_OF_WEEK));
             for(int key = 0; key<keys.length;key++){
                 algunaAplica  = false;

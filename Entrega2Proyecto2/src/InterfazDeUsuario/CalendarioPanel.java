@@ -19,14 +19,18 @@ public class CalendarioPanel extends JPanel {
     private int year;
     private HashMap<String, ArrayList<Boolean>> mapTarifas;
     private int index;
+    private int iteraciones;
 
     public CalendarioPanel(int month, int year, HashMap<String, ArrayList<Boolean>> mapTarifas, int index) {
-
         this.mapTarifas = mapTarifas;
         this.index = index;
         
         this.month = month;
         this.year = year;
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, 1);
+        iteraciones = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         setSize(50, 50);
     }
@@ -91,7 +95,6 @@ public class CalendarioPanel extends JPanel {
                         numDivisiones ++;
                         colores.add(Color.PINK);
                     }
-                    index++;
                     if(numDivisiones == 0){
                         g2d.setColor(Color.GREEN);
                         g2d.fillRect(x, y - cellSize / 2, cellSize, cellSize);
@@ -104,6 +107,9 @@ public class CalendarioPanel extends JPanel {
                             desplazamiento ++;
                         }
                     }
+                    
+                    index++;
+
                     g2d.setFont(new Font("Arial", Font.PLAIN, cellSize / 2));
                     String dayStr = String.valueOf(day);
                     int textWidth = g2d.getFontMetrics().stringWidth(dayStr);
@@ -127,8 +133,28 @@ public class CalendarioPanel extends JPanel {
         }
     }
 
-    public int getIndex(){
-        return index;
+    public int getIteraciones(){
+        return iteraciones;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setMapTarifas(HashMap<String, ArrayList<Boolean>> mapTarifas) {
+        this.mapTarifas = mapTarifas;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public void setIteraciones(int iteraciones) {
+        this.iteraciones = iteraciones;
     }
     
 }

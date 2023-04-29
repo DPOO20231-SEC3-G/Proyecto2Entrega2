@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import javax.swing.JDialog;
+import javax.swing.JTextArea;
 
 import Modelo.ControladorHabitaciones;
 
@@ -15,7 +16,8 @@ public class ConsultarTarifas extends JDialog{
 
         HashMap<String,ArrayList<Boolean>> mapTarifas = controladorHabitaciones.getMapTarifas();
         int index = 0;
-        setLayout(new GridLayout(4,3));
+        setLayout(new GridLayout(5,3));
+        setTitle("Tarifas sin definir");
 
         Calendar cal = Calendar.getInstance();
         int month = cal.get(Calendar.MONTH);
@@ -26,7 +28,7 @@ public class ConsultarTarifas extends JDialog{
 
             add(calendarioPanel);
 
-            index = calendarioPanel.getIndex() + 1;
+            index += calendarioPanel.getIteraciones();
 
             if(month == 12){
                 month = 1;
@@ -37,7 +39,15 @@ public class ConsultarTarifas extends JDialog{
             }
         }
 
-        setSize(500, 700);
+        JTextArea individual = new JTextArea("Cyan: estandar"); individual.setEditable(false);
+        JTextArea suite = new JTextArea("Rojo: suite"); suite.setEditable(false);
+        JTextArea suiteDoble = new JTextArea("Rosado: suite doble"); suiteDoble.setEditable(false);
+
+        add(individual);
+        add(suite);
+        add(suiteDoble);
+
+        setSize(600, 800);
         setResizable(false);
     }
 }
