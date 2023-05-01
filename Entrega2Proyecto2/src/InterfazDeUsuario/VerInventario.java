@@ -67,15 +67,23 @@ public class VerInventario extends JDialog{
 
             JTextArea reservasText = new JTextArea("Reservas: "); reservasText.setEditable(false);
 
-            JPanel panelReserva = null;
+            JPanel panelReserva = new JPanel(); 
+
+            panelReserva.setLayout(new BoxLayout(panelReserva, BoxLayout.Y_AXIS));
+
             for(Reserva reserva : habitacion.getReservas()){
-                panelReserva = new JPanel(); panelReserva.setLayout(new BoxLayout(panelReserva, BoxLayout.Y_AXIS));
-                JTextArea reservaTextArea = new JTextArea(reserva.stringInventario()); reservaTextArea.setEditable(false);
-                panelReserva.setBorder(borde); 
-                panelReserva.add(reservaTextArea);
+                JPanel panelReservaIndividual = new JPanel(); 
+                panelReservaIndividual.setLayout(new BoxLayout(panelReservaIndividual, BoxLayout.Y_AXIS));
+                JTextArea reservaTextArea = new JTextArea(reserva.stringInventario()); 
+                reservaTextArea.setEditable(false);
+                panelReservaIndividual.setBorder(borde); 
+                panelReservaIndividual.add(reservaTextArea);
+                panelReserva.add(panelReservaIndividual);
             }
+
             JScrollPane scrollPaneReservas = new JScrollPane(panelReserva);
             scrollPaneReservas.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
 
             panel.add(textAreaHabitacion); panel.add(textAreaId);
             panel.add(tipoHabitacion); panel.add(capacidad);

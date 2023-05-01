@@ -34,7 +34,7 @@ public class ControladorHuespedes {
         if(huesped == null){
             huesped = new Huesped(nombre, documento, email, celular, necesitaCama);
             try {
-                Files.write(Paths.get("Proyecto1Entrega3/Datos/Huespedes.txt"),("\n"+nombre+";"+documento+";"+email+";"+celular+";"+necesitaCama).getBytes(), StandardOpenOption.APPEND );
+                Files.write(Paths.get("./Entrega2Proyecto2/Datos/Huespedes.txt"),("\n"+nombre+";"+documento+";"+email+";"+celular+";"+necesitaCama).getBytes(), StandardOpenOption.APPEND );
             } catch (IOException e) {
                 e.printStackTrace();
             }

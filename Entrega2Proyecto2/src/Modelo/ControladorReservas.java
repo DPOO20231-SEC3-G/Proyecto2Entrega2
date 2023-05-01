@@ -52,7 +52,7 @@ public class ControladorReservas {
         int id = reservas.size();
         Reserva reserva = new Reserva(rangoFecha,huespedes,habitacion, id,false);
         try {
-            Files.write(Paths.get("Proyecto1Entrega3/Datos/Reservas.txt"),("\n"+id+";"+reserva.getHabitacion().getId()+";"+fechaInicial+";"+fechaFinal+";"+huespedesString+";false" + ";-;-").getBytes(), StandardOpenOption.APPEND );
+            Files.write(Paths.get("./Entrega2Proyecto2/Datos/Reservas.txt"),("\n"+id+";"+reserva.getHabitacion().getId()+";"+fechaInicial+";"+fechaFinal+";"+huespedesString+";false" + ";-;-").getBytes(), StandardOpenOption.APPEND );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -159,7 +159,7 @@ public class ControladorReservas {
                         }
                 }
                 try {
-                    Path path = Paths.get("Proyecto2Entrega1/Datos/Reservas.txt");
+                    Path path = Paths.get("./Entrega2Proyecto2/Datos/Reservas.txt");
                     List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
                     lines.set(id + 1, id + ";" + reserva.getHabitacion().getId() + ";" + sdf.format(fechaInicial) + ";" + sdf.format(reserva.getFechas().getFechaFinal()) + ";" + huespedesString + ";true;" + strServicios +";" + strMenu);
 

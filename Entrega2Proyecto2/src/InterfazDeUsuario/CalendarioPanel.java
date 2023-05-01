@@ -20,10 +20,16 @@ public class CalendarioPanel extends JPanel {
     private HashMap<String, ArrayList<Boolean>> mapTarifas;
     private int index;
     private int iteraciones;
+    private boolean tarifas;
+    private ArrayList<Color> coloresOcupacion;
 
-    public CalendarioPanel(int month, int year, HashMap<String, ArrayList<Boolean>> mapTarifas, int index) {
+    public CalendarioPanel(int month, int year, HashMap<String, ArrayList<Boolean>> mapTarifas, int index, boolean tarifas, ArrayList<Color> coloresOcupacion) {
         this.mapTarifas = mapTarifas;
         this.index = index;
+        this.coloresOcupacion = coloresOcupacion;
+
+
+        this.tarifas = tarifas;
         
         this.month = month;
         this.year = year;
@@ -80,6 +86,7 @@ public class CalendarioPanel extends JPanel {
                 } else if (day > lastDayOfMonth) {
                 } else {
 
+                    if(tarifas){
                     ArrayList<Color> colores = new ArrayList<Color>();
                     int numDivisiones= 0;
 
@@ -106,7 +113,11 @@ public class CalendarioPanel extends JPanel {
                             g2d.fillRect(x + (desplazamiento*cellSize/numDivisiones), y - cellSize / 2, cellSize/numDivisiones, cellSize);
                             desplazamiento ++;
                         }
-                    }
+                    }}
+                    else{
+                        g2d.setColor(coloresOcupacion.get(index));
+                        g2d.fillRect(x, y - cellSize / 2, cellSize, cellSize);
+                    } 
                     
                     index++;
 

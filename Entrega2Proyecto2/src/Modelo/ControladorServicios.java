@@ -87,7 +87,7 @@ public class ControladorServicios {
         ProductoRestaurante productoRestaurante =  new ProductoRestaurante(nombre, "persona", "Restaurante", precio, rangoHoras, tipoProducto);
         menu.add(productoRestaurante);
         try {
-            Files.write(Paths.get("Proyecto1Entrega3/Datos/MenuRestaurante.txt"),("\n"+nombre+";persona;Restaurante;"+tipoProducto+";"+rangoHoras+";"+precio).getBytes(), StandardOpenOption.APPEND );
+            Files.write(Paths.get("./Entrega2Proyecto2/Datos/MenuRestaurante.txt"),("\n"+nombre+";persona;Restaurante;"+tipoProducto+";"+rangoHoras+";"+precio).getBytes(), StandardOpenOption.APPEND );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,7 +97,7 @@ public class ControladorServicios {
         if(string.equals("MenuRestaurante")){
             index = 5;
         }
-        Path archivoServicios = Paths.get("Proyecto1Entrega3/Datos/" + string +".txt");
+        Path archivoServicios = Paths.get("./Entrega2Proyecto2/Datos/" + string +".txt");
         List<String> lineas;
         try {
             lineas = Files.readAllLines(archivoServicios, StandardCharsets.UTF_8);

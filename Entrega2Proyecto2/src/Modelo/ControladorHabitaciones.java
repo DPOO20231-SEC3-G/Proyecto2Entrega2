@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -64,20 +65,20 @@ public class ControladorHabitaciones {
                 Cama cama = habitacion.getCamas().get(i);
                 if(i==0){
                 try {
-                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                    Files.write(Paths.get("./Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                 } catch (IOException e) {
                     e.printStackTrace();
                 }}
                 else if(i == habitacion.getCamas().size()-1){
                     try {
-                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                        Files.write(Paths.get("./Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
                 else{
                     try {
-                        Files.write(Paths.get("Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
+                        Files.write(Paths.get("./Entrega2Proyecto2/Datos/Camas.txt"),("\n"+id+";"+cama.getTamaño()+";"+cama.getCantidadPersonas()+";"+cama.isSoloNiños()).getBytes(), StandardOpenOption.APPEND );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -85,7 +86,7 @@ public class ControladorHabitaciones {
             }
             this.habitaciones.add(habitacion);
             try {
-                Files.write(Paths.get("Entrega2Proyecto2/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()).getBytes(), StandardOpenOption.APPEND );
+                Files.write(Paths.get("./Entrega2Proyecto2/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()).getBytes(), StandardOpenOption.APPEND );
             } catch (IOException e) {
                 
                 e.printStackTrace();
@@ -100,7 +101,7 @@ public class ControladorHabitaciones {
                 Tarifa tarifa = new Tarifa(dias, valorTarifa, tipoHabitacion, dateInicial, dateFinal);
                 this.tarifasExistentes.get(tipoHabitacion).add(tarifa);   
                 try {
-                    Files.write(Paths.get("Entrega2Proyecto2/Datos/Tarifas.txt"),("\n"+dias+";"+valorTarifa+";"+tipoHabitacion+";"+fechaInicial+";"+fechaFinal).getBytes(), StandardOpenOption.APPEND );
+                    Files.write(Paths.get("./Entrega2Proyecto2/Datos/Tarifas.txt"),("\n"+dias+";"+valorTarifa+";"+tipoHabitacion+";"+fechaInicial+";"+fechaFinal).getBytes(), StandardOpenOption.APPEND );
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -217,7 +218,55 @@ public class ControladorHabitaciones {
         return mapTarifas;
     }
    
+    public ArrayList<Color> getListOcupacion(){
+        ArrayList<Color> listaColores = new ArrayList<Color>();
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE,0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.DAY_OF_MONTH,1);
 
+        int totalHabs = habitaciones.size();
+
+        int i = 0;
+        while(i < 375){
+        int habitacionesOcupadas = 0;
+        for(Habitacion habitacion : habitaciones){
+            Boolean ocupada = false;
+            for(Reserva reserva : habitacion.getReservas()){
+                if(reserva.getFechas().fechaEnRango(cal.getTime())){
+                    ocupada = true;
+                }
+
+            }
+            if(ocupada){
+                habitacionesOcupadas++;
+            }
+            
+        }
+        cal.add(Calendar.DAY_OF_YEAR, 1);
+
+        float ocupacion = (float) habitacionesOcupadas / totalHabs;
+        
+        if(ocupacion < 0.25){
+            listaColores.add(Color.decode("#EFFBEF"));
+        }
+        else if(ocupacion >= 0.25 && ocupacion < 0.5){
+            listaColores.add(Color.decode("#A9F5A9"));
+        }
+        else if(ocupacion >= 0.5 && ocupacion < 0.75){
+            listaColores.add(Color.decode("#00FF00"));
+        }
+        else if(ocupacion >= 0.75 && ocupacion <= 1){
+            listaColores.add(Color.decode("#298A08"));
+        }
+        i++;
+    }
+
+
+        return listaColores;
+    }
     
     
 }

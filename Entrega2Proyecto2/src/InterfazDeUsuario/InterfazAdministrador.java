@@ -89,7 +89,8 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
             ConsultarTarifas consultarTarifas =  new ConsultarTarifas(hotel.getControladorHabitaciones());
             consultarTarifas.setVisible(true);
         } else if (e.getSource() == botonVerDiagramaOcupacion) {
-            // Acción cuando se presiona el botón "Ver diagrama de ocupación"
+            ConsultarOcupacion consultarOcupacion = new ConsultarOcupacion(hotel.getControladorHabitaciones());
+            consultarOcupacion.setVisible(true);
         }   else if(e.getSource() == cambiarUsuario){
             setVisible(false);
             new IniciarInterfaz();
