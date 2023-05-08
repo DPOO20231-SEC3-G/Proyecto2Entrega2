@@ -63,6 +63,7 @@ public class InterfazRecepcionista extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonCrearReserva) {
             // Acción cuando se presiona el botón "Crear reserva"
+            new CrearReserva(hotel);
         } else if (e.getSource() == botonGenerarFactura) {
             // Acción cuando se presiona el botón "Generar factura"
         } else if (e.getSource() == botonConsultarInventario) {
