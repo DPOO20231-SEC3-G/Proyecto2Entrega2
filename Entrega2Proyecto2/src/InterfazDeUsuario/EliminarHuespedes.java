@@ -180,9 +180,9 @@ public class EliminarHuespedes extends JDialog implements ActionListener {
                         EliminarHuespedes.this.dispose();
                 }else {}
                 i++; 
-            } 
+            }}
             JOptionPane.showMessageDialog(null,"Verifique el documento del huesped a eliminar", "Alerta", JOptionPane.INFORMATION_MESSAGE );
-        }}
+        }
     }
 
 
