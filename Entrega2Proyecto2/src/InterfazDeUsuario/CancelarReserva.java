@@ -50,6 +50,8 @@ public class CancelarReserva extends JDialog implements ActionListener{
 
         controladorReservas = nControladorReservas;
 
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         reservas = controladorReservas.getReservas();
 
         panel = new JPanel();

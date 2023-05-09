@@ -51,6 +51,7 @@ public class GenerarFacturaReserva  extends JDialog implements ActionListener {
 
         hotel = nHotel;
         controladorReservas = hotel.getControladorReservas();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         reservas = controladorReservas.getReservas();
 

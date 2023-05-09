@@ -66,6 +66,7 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
         setResizable(false);
         model = new DefaultListModel<String>();
         value = 1;
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         listaHuespedes = crearReserva.getHuespedes();
 

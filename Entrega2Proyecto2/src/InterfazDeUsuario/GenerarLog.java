@@ -55,6 +55,8 @@ public class GenerarLog extends JDialog implements ActionListener, KeyListener {
 
         setResizable(false);
 
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         panelSuperior = new JPanel();
 
         panelSuperior.setLayout(new GridLayout(2,2));

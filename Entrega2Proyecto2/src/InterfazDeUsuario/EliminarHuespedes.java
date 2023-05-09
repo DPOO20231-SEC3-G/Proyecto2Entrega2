@@ -44,6 +44,8 @@ public class EliminarHuespedes extends JDialog implements ActionListener {
 
         value = 1;
 
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         setLayout(new BorderLayout());
         setSize(500,300);
         setResizable(false);
