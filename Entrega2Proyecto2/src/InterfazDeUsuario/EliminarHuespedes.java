@@ -24,7 +24,7 @@ public class EliminarHuespedes extends JDialog implements ActionListener {
 
     int value;
     
-    JList lista;
+    JList<String> lista;
 
     JScrollPane scroll;
     
@@ -63,7 +63,7 @@ public class EliminarHuespedes extends JDialog implements ActionListener {
             model.addElement(cadena);
         }
 
-        JList<String> lista = new JList<String>(model);
+        lista = new JList<String>(model);
         scroll = new JScrollPane();
 
         scroll.setViewportView(lista);

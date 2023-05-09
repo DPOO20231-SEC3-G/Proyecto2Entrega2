@@ -13,11 +13,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import Modelo.Hotel;
-import Modelo.Huesped;
 
 public class GenerarLog extends JDialog implements ActionListener, KeyListener {
 

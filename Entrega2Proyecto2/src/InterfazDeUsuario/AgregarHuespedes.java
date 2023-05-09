@@ -14,11 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
-import Modelo.Hotel;
 
 public class AgregarHuespedes extends JDialog implements ActionListener {
 
@@ -26,35 +23,35 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
 
     private GenerarLog generarLog;
 
-    int value;
+    private int value;
 
-    JList lista;
+    private JList<String> lista;
 
-    JScrollPane scroll;
+    private JScrollPane scroll;
     
-    DefaultListModel<String> model;
+    private DefaultListModel<String> model;
 
-    ArrayList<ArrayList<String>> listaHuespedes;
+    private ArrayList<ArrayList<String>> listaHuespedes;
 
-    JLabel lNombre;
+    private JLabel lNombre;
 
-    JTextArea tNombre;
+    private JTextArea tNombre;
 
-    JLabel lDocumento;
+    private  JLabel lDocumento;
 
-    JTextArea tDocumento;
+    private JTextArea tDocumento;
 
-    JLabel lCorreo;
+    private JLabel lCorreo;
 
-    JTextArea tCorreo;
+    private JTextArea tCorreo;
 
-    JLabel lCelular;
+    private JLabel lCelular;
 
-    JTextArea tCelular;
+    private JTextArea tCelular;
 
-    JCheckBox cBNecesitaCama;
+    private JCheckBox cBNecesitaCama;
 
-    JButton bGuardar;
+    private JButton bGuardar;
 
 
     public AgregarHuespedes(CrearReserva nCrearReserva){
@@ -80,7 +77,7 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
             model.addElement(cadena);
         }
 
-        JList<String> lista = new JList<String>(model);
+        lista = new JList<String>(model);
         scroll = new JScrollPane();
 
         scroll.setViewportView(lista);

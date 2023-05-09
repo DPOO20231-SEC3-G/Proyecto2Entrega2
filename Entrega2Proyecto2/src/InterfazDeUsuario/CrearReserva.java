@@ -1,14 +1,10 @@
 package InterfazDeUsuario;
 
-import javax.security.auth.x500.X500Principal;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.*;
@@ -130,10 +126,10 @@ public class CrearReserva extends JDialog implements ActionListener{
         }
         }
         else if(e.getSource() == bAgregarHuesped){
-            AgregarHuespedes agregarHuespedes = new AgregarHuespedes(this);
+            new AgregarHuespedes(this);
         }
         else if(e.getSource() == bEliminarHuesped){
-            EliminarHuespedes eliminarHuespedes = new EliminarHuespedes(this);
+            new EliminarHuespedes(this);
         }
         else if(e.getSource() == bVerificarDisponibilidad){
         idHabitacionText = tIdHabitacion.getText();
