@@ -17,11 +17,14 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
     private JPasswordField passField;
     private JButton loginButton;
 
+	private Usuario user;
+
+
 	public static void main(String[] args) {
 		
-		new IniciarInterfaz();
+		new IniciarInterfaz(true,null);
 	}
-	public IniciarInterfaz(){
+	public IniciarInterfaz(Boolean mostrar,Usuario user){
 		this.hotel = new Hotel();
 
 		try {
@@ -57,7 +60,11 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
 
         setSize(300, 150);
         setLocationRelativeTo(null); 
-        setVisible(true);
+        setVisible(mostrar);
+
+		if(mostrar == false){
+			admin(hotel, user);
+		}
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -65,11 +72,10 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
             String usuario = userField.getText();
             String contraseña = new String(passField.getPassword());
             
-			Usuario user = hotel.getUsuario(usuario, contraseña);
+			user = hotel.getUsuario(usuario, contraseña);
 			if( user != null){
 				if(user.getRol().equals("Administrador")){
-					new InterfazAdministrador(hotel,user);
-					setVisible(false);
+					admin(hotel,user);
 				}
 				else if(user.getRol().equals("Empleado")){
 					new InterfazEmpleado(hotel, user);
@@ -86,6 +92,10 @@ public class IniciarInterfaz extends JFrame implements ActionListener{
         }
     }
 
+	public void admin(Hotel hotel, Usuario user) {
+		new InterfazAdministrador(hotel,user);
+		setVisible(false);
+	}
 	public Hotel getHotel() {
 		return hotel;
 	}

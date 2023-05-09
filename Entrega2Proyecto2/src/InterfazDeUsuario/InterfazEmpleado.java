@@ -56,7 +56,7 @@ public class InterfazEmpleado extends JFrame implements ActionListener {
             registrarConsumo.setVisible(true);
         } else if(e.getSource() == cambiarUsuario){
             setVisible(false);
-            new IniciarInterfaz();
+            new IniciarInterfaz(true,null);
         }
         
     }

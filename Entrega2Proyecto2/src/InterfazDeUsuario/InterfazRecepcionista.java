@@ -77,7 +77,7 @@ public class InterfazRecepcionista extends JFrame implements ActionListener {
             new GenerarLog(hotel);
         } else if(e.getSource() == cambiarUsuario){
             setVisible(false);
-            new IniciarInterfaz();
+            new IniciarInterfaz(true,null);
         }
         
     }

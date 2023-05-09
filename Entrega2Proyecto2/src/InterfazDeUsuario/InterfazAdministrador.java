@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.*;
 
-public class InterfazAdministrador extends JFrame implements ActionListener {
+public class InterfazAdministrador extends JFrame implements ActionListener,WindowListener {
     private JButton botonCrearHabitacion;
     private JButton botonCargarTarifaHabitacion;
     private JButton botonCrearServicio;
@@ -21,10 +21,15 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
     private JButton cambiarUsuario;
 
     private Hotel hotel;
+    private Usuario user;
+
+
+    private CrearTarifa crearTarifa;
 
     public InterfazAdministrador(Hotel hotel, Usuario user) {
 
         this.hotel = hotel;
+        this.user = user;
 
         setTitle("Bienvenid@: " +user.getRol() + "  "+ user.getNombre());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,7 +45,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         botonCargarTarifaHabitacion.addActionListener(this);
         botonCrearServicio = new JButton("Crear servicio");
         botonCrearServicio.addActionListener(this);
-        botonModificarTarifaServicio = new JButton("Modificar tarifa se servicio");
+        botonModificarTarifaServicio = new JButton("Modificar tarifa de servicio");
         botonModificarTarifaServicio.addActionListener(this);
         botonCrearProductoRestaurante = new JButton("Crear producto de restaurante");
         botonCrearProductoRestaurante.addActionListener(this);
@@ -81,7 +86,8 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
             CrearHabitacion crearHabitacion = new CrearHabitacion(hotel.getControladorHabitaciones());
             crearHabitacion.setVisible(true);
         } else if (e.getSource() == botonCargarTarifaHabitacion) {
-            CrearTarifa crearTarifa = new CrearTarifa(hotel.getControladorHabitaciones());
+            crearTarifa = new CrearTarifa(hotel.getControladorHabitaciones());
+            crearTarifa.addWindowListener(this);
             crearTarifa.setVisible(true);
         } else if (e.getSource() == botonModificarTarifaServicio) {
             ModificarTarifaServicios modificartarifa = new ModificarTarifaServicios(hotel.getControladorServicios());
@@ -100,7 +106,38 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
             consultarOcupacion.setVisible(true);
         }   else if(e.getSource() == cambiarUsuario){
             setVisible(false);
-            new IniciarInterfaz();
+            new IniciarInterfaz(true,null);
         }
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {}
+
+    @Override
+    public void windowClosing(WindowEvent e) {}
+
+    @Override
+    public void windowClosed(WindowEvent e) {}
+
+    @Override
+    public void windowIconified(WindowEvent e) {}
+
+    @Override
+    public void windowDeiconified(WindowEvent e) { }
+
+    @Override
+    public void windowActivated(WindowEvent e) {}
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        if(e.getSource() == crearTarifa){
+            reset();
+        }
+    }
+
+    public void reset(){
+        setVisible(false);
+        new IniciarInterfaz(false,user);
+        
     }
 }
