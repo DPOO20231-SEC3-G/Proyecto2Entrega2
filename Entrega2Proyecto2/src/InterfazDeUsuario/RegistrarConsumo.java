@@ -22,10 +22,10 @@ import Modelo.Servicio;
 
 public class RegistrarConsumo extends JFrame implements ActionListener{
     
-    private JComboBox comboReservas;
-    private JComboBox comboProductos;
-    private JComboBox comboServicios;
-    private JComboBox comboTipo;
+    private JComboBox<String> comboReservas;
+    private JComboBox<String> comboProductos;
+    private JComboBox<String> comboServicios;
+    private JComboBox<String> comboTipo;
     private JButton botoncerrar;
     private JButton botonconfirmar;
     private Reserva reservaSelected;
@@ -74,11 +74,11 @@ public class RegistrarConsumo extends JFrame implements ActionListener{
         String[] listaProds = showProductos(controladorServicios);
         String[] listareservs = showReservas(controladorReservas);
 
-        comboProductos = new JComboBox(listaProds);
+        comboProductos = new JComboBox<String>(listaProds);
         comboProductos.addActionListener(this);
-        comboReservas = new JComboBox(listareservs);
+        comboReservas = new JComboBox<String>(listareservs);
         comboReservas.addActionListener(this);
-        comboServicios = new JComboBox(listaservs);
+        comboServicios = new JComboBox<String>(listaservs);
         comboServicios.addActionListener(this);
 
         String[] options = {"Servicio","Producto"};
@@ -144,7 +144,8 @@ public class RegistrarConsumo extends JFrame implements ActionListener{
         }
 
         if(e.getSource().equals(comboTipo)){
-            JComboBox comboBox1 = (JComboBox) e.getSource(); 
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBox1 = (JComboBox<String>) e.getSource(); 
             if("Servicio" == comboBox1.getSelectedItem()){
                 comboServicios.setVisible(true);
                 comboProductos.setVisible(false);
@@ -158,19 +159,23 @@ public class RegistrarConsumo extends JFrame implements ActionListener{
         }
 
         if(e.getSource().equals(comboReservas)){
-            JComboBox comboR = (JComboBox) e.getSource();
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboR = (JComboBox<String>) e.getSource();
             int ID = Integer.parseInt((String) comboR.getSelectedItem());
             ArrayList<Reserva> reservas = controladorReservas.getReservas();
             reservaSelected = reservas.get(ID-1);
         }
 
         if(e.getSource().equals(comboProductos)){
-            JComboBox comboBoxP = (JComboBox) e.getSource();
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBoxP = (JComboBox<String>) e.getSource();
             nameServicio = (String) comboBoxP.getSelectedItem();
         }
 
         if(e.getSource().equals(comboServicios)){
-            JComboBox comboBoxS = (JComboBox) e.getSource();
+
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBoxS = (JComboBox<String>) e.getSource();
             nameServicio = (String) comboBoxS.getSelectedItem();
         }
 

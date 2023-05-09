@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -16,10 +15,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
 import Modelo.ControladorServicios;
-import Modelo.Hotel;
 import Modelo.ProductoRestaurante;
 import Modelo.Servicio;
 
@@ -77,7 +73,8 @@ public class ModificarTarifaServicios extends JDialog implements ActionListener 
         }
 
         else if(e.getSource().equals(comboBox)){
-            JComboBox comboBox1 = (JComboBox) e.getSource(); 
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBox1 = (JComboBox<String>) e.getSource(); 
             if("Servicio".equals(comboBox1.getSelectedItem())){
                 comboServicios.setVisible(true);
                 comboMenu.setVisible(false);
@@ -90,48 +87,28 @@ public class ModificarTarifaServicios extends JDialog implements ActionListener 
 
         else if(e.getSource().equals(comboMenu)){
             String classServicio = "ProductoRestaurante";
-            JComboBox comboBoxM = (JComboBox) e.getSource();
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBoxM = (JComboBox<String>) e.getSource();
             String nameServicio = (String) comboBoxM.getSelectedItem();
-            LabelPrecio labelPrecio = new LabelPrecio(botoncerrar, nameServicio, classServicio, controladorServicios);
+            new LabelPrecio(botoncerrar, nameServicio, classServicio, controladorServicios);
         }
 
         else if(e.getSource().equals(comboServicios)){
             String classServicio = "Servicio";
-            JComboBox comboBoxS = (JComboBox) e.getSource();
+            @SuppressWarnings("unchecked")
+            JComboBox<String> comboBoxS = (JComboBox<String>) e.getSource();
             String nameServicio = (String) comboBoxS.getSelectedItem();
-            LabelPrecio labelPrecio = new LabelPrecio(botoncerrar, nameServicio, classServicio, controladorServicios);
+            new LabelPrecio(botoncerrar, nameServicio, classServicio, controladorServicios);
         }
     }
 
     private class LabelPrecio extends JPanel{
-        
-        private JTextField textFieldPrecio;
-        private String nameServicio;
-        private String classServicio;
-        private ControladorServicios controladorServicios;
-
-        public String getNameServicio(){
-            return nameServicio;
-        }
-
-        public String getClassServicio(){
-            return classServicio;
-        }
-
-        public ControladorServicios getcontroladorServicios(){
-            return controladorServicios;
-        }
-
         public LabelPrecio(JButton botoncerrar, String nameServicio, String classServicio, ControladorServicios controladorServicios){
             setLayout(new GridLayout(2, 2));
             setSize(200,200);
             
             JFrame jframe = new JFrame();
 
-            this.controladorServicios = controladorServicios;
-            this.nameServicio = nameServicio;
-            this.classServicio = classServicio;
-            
             double precio = Double.parseDouble(JOptionPane.showInputDialog(jframe, "Precio:"));
 
             setVisible(true);
