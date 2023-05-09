@@ -22,7 +22,11 @@ import Modelo.Hotel;
 
 public class AgregarHuespedes extends JDialog implements ActionListener {
 
-    CrearReserva crearReserva;
+    private CrearReserva crearReserva;
+
+    private GenerarLog generarLog;
+
+    int value;
 
     JList lista;
 
@@ -58,8 +62,10 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
         crearReserva = nCrearReserva;
 
         setLayout(new BorderLayout());
-        setSize(500,500);
+        setSize(500,300);
+        setResizable(false);
         model = new DefaultListModel<String>();
+        value = 1;
         
         listaHuespedes = crearReserva.getHuespedes();
 
@@ -113,10 +119,80 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
         bGuardar.addActionListener(this);
         panelDerecho.add(bGuardar);
 
+        panelDerecho.setSize(250, 300);
+
         add(panelDerecho, BorderLayout.EAST);
 
         setVisible(true);
 
+    }
+
+    public AgregarHuespedes(GenerarLog nGenerarLog){
+        generarLog = nGenerarLog;
+        value = 0;
+
+        setLayout(new BorderLayout());
+        setSize(500,300);
+        setResizable(false);
+        model = new DefaultListModel<String>();
+        
+        listaHuespedes = generarLog.getHuespedes();
+
+        for (ArrayList<String> info : listaHuespedes) {
+            String cadena= "";
+            cadena += "Nombre: "+info.get(0);
+            cadena += ", Documento: "+info.get(1);
+            cadena += ", Email: "+info.get(2);
+            cadena += ", Celular: "+info.get(3);
+            cadena += ", Necesita Cama: "+info.get(4);
+            model.addElement(cadena);
+        }
+
+        JList<String> lista = new JList<String>(model);
+        scroll = new JScrollPane();
+
+        scroll.setViewportView(lista);
+        add(scroll, BorderLayout.CENTER);
+
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new GridLayout(10,1));
+
+        lNombre = new JLabel("Nombre:");
+        panelDerecho.add(lNombre);
+
+        tNombre = new JTextArea();
+        panelDerecho.add(tNombre);
+
+        lDocumento = new JLabel("Documento:");
+        panelDerecho.add(lDocumento);
+
+        tDocumento = new JTextArea();
+        panelDerecho.add(tDocumento);
+
+        lCorreo = new JLabel("Correo:");
+        panelDerecho.add(lCorreo);
+        
+        tCorreo = new JTextArea();
+        panelDerecho.add(tCorreo);
+
+        lCelular = new JLabel("Celular:");
+        panelDerecho.add(lCelular);
+
+        tCelular = new JTextArea();
+        panelDerecho.add(tCelular);
+
+        cBNecesitaCama = new JCheckBox("Necesita cama: ");
+        panelDerecho.add(cBNecesitaCama);
+
+        bGuardar = new JButton("Guardar Huesped");
+        bGuardar.addActionListener(this);
+        panelDerecho.add(bGuardar);
+
+        panelDerecho.setSize(250, 300);
+
+        add(panelDerecho, BorderLayout.EAST);
+
+        setVisible(true);
     }
 
     @Override
@@ -139,7 +215,7 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
             continuo = false;
         }
         
-        if(continuo){
+        if(continuo && value == 1){
             ArrayList<String> huesped = new ArrayList<String> ();
             huesped.add(tNombre.getText());
             huesped.add(tDocumento.getText());
@@ -150,6 +226,22 @@ public class AgregarHuespedes extends JDialog implements ActionListener {
             } else {huesped.add("false");}
             listaHuespedes.add(huesped);
             crearReserva.setHuespedes(listaHuespedes);
+            JOptionPane.showMessageDialog(null,"Se guardo la informacion del huesped exitosamente", "Alerta", JOptionPane.INFORMATION_MESSAGE );
+            crearReserva.setnHuespedes(crearReserva.getnHuespedes()+1);
+            crearReserva.actualizarNHuespedes();
+            AgregarHuespedes.this.dispose();
+        }
+        else if(continuo && value == 0){
+            ArrayList<String> huesped = new ArrayList<String> ();
+            huesped.add(tNombre.getText());
+            huesped.add(tDocumento.getText());
+            huesped.add(tCorreo.getText());
+            huesped.add(tCelular.getText());
+            if (cBNecesitaCama.isSelected()){
+                huesped.add("true");
+            } else {huesped.add("false");}
+            listaHuespedes.add(huesped);
+            generarLog.setHuespedes(listaHuespedes);
             JOptionPane.showMessageDialog(null,"Se guardo la informacion del huesped exitosamente", "Alerta", JOptionPane.INFORMATION_MESSAGE );
             AgregarHuespedes.this.dispose();
         }

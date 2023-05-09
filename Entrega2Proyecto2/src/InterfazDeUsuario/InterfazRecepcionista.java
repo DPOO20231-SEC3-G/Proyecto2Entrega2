@@ -66,12 +66,15 @@ public class InterfazRecepcionista extends JFrame implements ActionListener {
             new CrearReserva(hotel);
         } else if (e.getSource() == botonGenerarFactura) {
             // Acción cuando se presiona el botón "Generar factura"
+            new GenerarFacturaReserva(hotel);
         } else if (e.getSource() == botonConsultarInventario) {
             new VerInventario(hotel.getControladorHabitaciones());
         } else if (e.getSource() == botonCancelarReserva) {
             // Acción cuando se presiona el botón "Cancelar reserva"
+            new CancelarReserva(hotel.getControladorReservas());
         } else if (e.getSource() == botonGenerarArchivoLog) {
             // Acción cuando se presiona el botón "Generar archivo log"
+            new GenerarLog(hotel);
         } else if(e.getSource() == cambiarUsuario){
             setVisible(false);
             new IniciarInterfaz();

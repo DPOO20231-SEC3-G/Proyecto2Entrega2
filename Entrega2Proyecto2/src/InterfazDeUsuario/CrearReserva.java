@@ -4,6 +4,7 @@ import javax.security.auth.x500.X500Principal;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -11,6 +12,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import Modelo.Hotel;
@@ -34,8 +36,20 @@ public class CrearReserva extends JDialog implements ActionListener{
     private JTextArea tFechaFinal;
     private JTextArea tIdHabitacion;
     
-
+    private String fechaInicial;
+    private String fechaFinal;
+    private String idHabitacionText;
     private int nHuespedes = 0;
+
+
+    public int getnHuespedes() {
+        return nHuespedes;
+    }
+
+    public void setnHuespedes(int nHuespedes) {
+        this.nHuespedes = nHuespedes;
+    }
+
     private ArrayList<ArrayList<String>> huespedes = new ArrayList<ArrayList<String>>() ;
 
     public ArrayList<ArrayList<String>> getHuespedes() {
@@ -46,9 +60,9 @@ public class CrearReserva extends JDialog implements ActionListener{
         this.huespedes = huespedes;
     }
 
-    private String fechaInicial;
-    private String fechaFinal;
-    private String idHabitacionText;
+    public void actualizarNHuespedes(){
+        lNumeroDeHuespedes.setText(String.valueOf(nHuespedes));
+    }
     
 
     public CrearReserva(Hotel nhotel){
@@ -57,6 +71,7 @@ public class CrearReserva extends JDialog implements ActionListener{
 
         setLayout(new GridLayout(7,2));
         setSize(300, 300);
+        setResizable(false);
         setDefaultCloseOperation( DISPOSE_ON_CLOSE );
         bAgregarHuesped= new JButton("Agregar huesped");
         bAgregarHuesped.addActionListener(this);
@@ -93,14 +108,32 @@ public class CrearReserva extends JDialog implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(e.getSource() == bCrearReserva){
+            idHabitacionText = tIdHabitacion.getText();
+            fechaInicial = tFechaInicio.getText();
+            fechaFinal = tFechaFinal.getText();
 
+        if (hotel.confirmarDisponibilidad(fechaInicial, fechaFinal, idHabitacionText)){
+            if(huespedes.size()>0){
+                try {
+                    hotel.crearReserva(huespedes, fechaInicial, fechaFinal, idHabitacionText);
+                } catch (ParseException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                JOptionPane.showMessageDialog(null,"Se creo la reserva exitosamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Añada huespedes a la reserva", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Verifique los datos ingresados", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+        }
         }
         else if(e.getSource() == bAgregarHuesped){
             AgregarHuespedes agregarHuespedes = new AgregarHuespedes(this);
-            lNumeroDeHuespedes.setText(String.valueOf(huespedes.size()));
         }
         else if(e.getSource() == bEliminarHuesped){
-
+            EliminarHuespedes eliminarHuespedes = new EliminarHuespedes(this);
         }
         else if(e.getSource() == bVerificarDisponibilidad){
         idHabitacionText = tIdHabitacion.getText();
