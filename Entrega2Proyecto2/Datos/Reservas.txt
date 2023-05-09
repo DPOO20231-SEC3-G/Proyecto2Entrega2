@@ -25,4 +25,4 @@ id;idHabitacion;fechaInicial;fechaFinal;Huespedes;cancelado;servicios;menu
 23;21;2023-08-22;2023-08-23;hrr:201492:h.coca:231:true;false;-;-
 24;21;2023-09-22;2023-09-23;hrr:201492:h.coca:231:true;false;-;-
 25;21;2023-10-22;2023-10-23;hrr:201492:h.coca:231:true;false;-;-
-26;21;2023-11-22;2023-11-23;hrr:201492:h.coca:231:true;false;-;-
+26;21;2023-11-22;2023-11-23;hrr:201492:h.coca:231:true;false;-0:false-0:false;-

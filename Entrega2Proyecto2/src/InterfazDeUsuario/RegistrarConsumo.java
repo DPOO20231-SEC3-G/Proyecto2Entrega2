@@ -161,7 +161,7 @@ public class RegistrarConsumo extends JFrame implements ActionListener{
             JComboBox comboR = (JComboBox) e.getSource();
             int ID = Integer.parseInt((String) comboR.getSelectedItem());
             ArrayList<Reserva> reservas = controladorReservas.getReservas();
-            reservaSelected = reservas.get(ID);
+            reservaSelected = reservas.get(ID-1);
         }
 
         if(e.getSource().equals(comboProductos)){
