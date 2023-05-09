@@ -13,7 +13,8 @@ import java.awt.event.*;
 public class InterfazAdministrador extends JFrame implements ActionListener {
     private JButton botonCrearHabitacion;
     private JButton botonCargarTarifaHabitacion;
-    private JButton botonCargarTarifaServicio;
+    private JButton botonCrearServicio;
+    private JButton botonModificarTarifaServicio;
     private JButton botonCrearProductoRestaurante;
     private JButton botonConsultarTarifas;
     private JButton botonVerDiagramaOcupacion;
@@ -37,8 +38,10 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         botonCrearHabitacion.addActionListener(this);
         botonCargarTarifaHabitacion = new JButton("Cargar tarifa de habitación");
         botonCargarTarifaHabitacion.addActionListener(this);
-        botonCargarTarifaServicio = new JButton("Cargar tarifa de servicio");
-        botonCargarTarifaServicio.addActionListener(this);
+        botonCrearServicio = new JButton("Crear servicio");
+        botonCrearServicio.addActionListener(this);
+        botonModificarTarifaServicio = new JButton("Modificar tarifa se servicio");
+        botonModificarTarifaServicio.addActionListener(this);
         botonCrearProductoRestaurante = new JButton("Crear producto de restaurante");
         botonCrearProductoRestaurante.addActionListener(this);
         botonConsultarTarifas = new JButton("Consultar tarifas sin establecer para el proximo año");
@@ -51,7 +54,8 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
         
         panel.add(botonCrearHabitacion);
         panel.add(botonCargarTarifaHabitacion);
-        panel.add(botonCargarTarifaServicio);
+        panel.add(botonCrearServicio);
+        panel.add(botonModificarTarifaServicio);
         panel.add(botonCrearProductoRestaurante);
         panel.add(botonConsultarTarifas);
         panel.add(botonVerDiagramaOcupacion);
@@ -78,13 +82,16 @@ public class InterfazAdministrador extends JFrame implements ActionListener {
             crearHabitacion.setVisible(true);
         } else if (e.getSource() == botonCargarTarifaHabitacion) {
             CrearTarifa crearTarifa = new CrearTarifa(hotel.getControladorHabitaciones());
-
             crearTarifa.setVisible(true);
-
-        } else if (e.getSource() == botonCargarTarifaServicio) {
-            // Acción cuando se presiona el botón "Cargar tarifa de servicio"
+        } else if (e.getSource() == botonModificarTarifaServicio) {
+            ModificarTarifaServicios modificartarifa = new ModificarTarifaServicios(hotel.getControladorServicios());
+            modificartarifa.setVisible(true);
+        } else if (e.getSource() == botonCrearServicio){
+            CrearServicio crearServicio = new CrearServicio(hotel.getControladorServicios());
+            crearServicio.setVisible(true);
         } else if (e.getSource() == botonCrearProductoRestaurante) {
-            // Acción cuando se presiona el botón "Crear producto de restaurante"
+           CrearProductoRestaurante crearProductoRestaurante = new CrearProductoRestaurante(hotel.getControladorServicios());
+           crearProductoRestaurante.setVisible(true);
         } else if (e.getSource() == botonConsultarTarifas) {
             ConsultarTarifas consultarTarifas =  new ConsultarTarifas(hotel.getControladorHabitaciones());
             consultarTarifas.setVisible(true);

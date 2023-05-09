@@ -84,5 +84,12 @@ public class Reserva {
     public void setCancelado(boolean bool){
         this.cancelado = bool;
     }
+    public void addProductoRestaurante(ProductoRestaurante productoRestaurante){
+        productoMenuConsumido.add(productoRestaurante);
+    }
+    public void addServicio(Servicio servicio){
+        serviciosConsumidos.add(servicio);
+    }
+
         
 }

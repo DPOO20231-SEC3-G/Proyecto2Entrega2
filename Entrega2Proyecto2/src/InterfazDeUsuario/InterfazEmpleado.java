@@ -52,7 +52,8 @@ public class InterfazEmpleado extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonRegistrarConsumo) {
-            // Acción cuando se presiona el botón "Registrar consumo"
+            RegistrarConsumo registrarConsumo = new RegistrarConsumo(hotel);
+            registrarConsumo.setVisible(true);
         } else if(e.getSource() == cambiarUsuario){
             setVisible(false);
             new IniciarInterfaz();

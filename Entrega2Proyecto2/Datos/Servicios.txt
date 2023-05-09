@@ -1,6 +1,6 @@
 nombreServicio;tipoCobro;lugarServicio;precio
 Tour por la ciudad;persona;Hotel;15000
-Masaje relajante;persona;Spa;50000
+Masaje relajante;persona;Spa;60000.0
 Traslado al aeropuerto;grupo;Hotel;100000
 Acceso al gimnasio;persona;Gimnasio;10000
 Alquiler de bicicletas;grupo;Hotel;25000

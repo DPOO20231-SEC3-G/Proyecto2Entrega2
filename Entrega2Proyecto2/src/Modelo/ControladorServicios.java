@@ -92,6 +92,15 @@ public class ControladorServicios {
             e.printStackTrace();
         }
     }
+    public void crearServicio(String nombre, String tipoCobro, String lugarServicio, double precio){
+        Servicio servicio =  new Servicio(nombre, tipoCobro,lugarServicio,precio);
+        servicios.add(servicio);
+        try {
+            Files.write(Paths.get("./Entrega2Proyecto2/Datos/Servicios.txt"),("\n"+nombre+";"+tipoCobro+";"+lugarServicio+";"+precio).getBytes(), StandardOpenOption.APPEND );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void cambiarPrecio(String string, String servicio, double nuevaTarifa){
         int index = 3;
         if(string.equals("MenuRestaurante")){
