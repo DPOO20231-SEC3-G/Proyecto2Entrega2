@@ -18,25 +18,25 @@ import javax.swing.JTextArea;
 
 public class EliminarHuespedes extends JDialog implements ActionListener {
 
-    CrearReserva crearReserva;
+    private CrearReserva crearReserva;
 
-    GenerarLog generarLog;
+    private GenerarLog generarLog;
 
-    int value;
+    private int value;
     
-    JList<String> lista;
+    private JList<String> lista;
 
-    JScrollPane scroll;
+    private JScrollPane scroll;
     
-    DefaultListModel<String> model;
+    private DefaultListModel<String> model;
 
-    ArrayList<ArrayList<String>> listaHuespedes;
+    private ArrayList<ArrayList<String>> listaHuespedes;
 
-    JLabel lDocumento;
+    private JLabel lDocumento;
 
-    JTextArea tADocumento;
+    private JTextArea tADocumento;
 
-    JButton bEliminar;
+    private JButton bEliminar;
 
     public EliminarHuespedes(CrearReserva nCrearReserva){
 

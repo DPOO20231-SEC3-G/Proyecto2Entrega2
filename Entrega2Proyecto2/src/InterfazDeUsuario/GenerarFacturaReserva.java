@@ -23,29 +23,29 @@ import java.util.ArrayList;
 
 public class GenerarFacturaReserva  extends JDialog implements ActionListener {
 
-    Hotel hotel;
+    private Hotel hotel;
 
-    ControladorReservas controladorReservas;
+    private ControladorReservas controladorReservas;
 
-    JPanel panel;
+    private JPanel panel;
 
-    JPanel panelInferior;
+    private JPanel panelInferior;
 
-    JScrollPane scroll;
+    private JScrollPane scroll;
 
-    ArrayList<Reserva> reservas;
+    private ArrayList<Reserva> reservas;
 
-    JLabel lReserva;
+    private JLabel lReserva;
 
-    JRadioButton bReserva;
+    private JRadioButton bReserva;
 
-    JButton bGenerarFactura;
+    private JButton bGenerarFactura;
 
-    JButton bSeleccionado;
+    private JButton bSeleccionado;
 
-    JLabel lSeleccionado;
+    private JLabel lSeleccionado;
 
-    ArrayList<Huesped> huespedes;
+    private ArrayList<Huesped> huespedes;
 
     public GenerarFacturaReserva(Hotel nHotel){
 

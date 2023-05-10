@@ -19,21 +19,21 @@ import Modelo.Hotel;
 
 public class GenerarLog extends JDialog implements ActionListener, KeyListener {
 
-    Hotel hotel;
+    private Hotel hotel;
 
-    JLabel lNHuespedes;
+    private JLabel lNHuespedes;
 
-    JTextArea taNHuespedes;
+    private JTextArea taNHuespedes;
 
-    JButton bConfirmarHuespedes;
+    private JButton bConfirmarHuespedes;
 
-    JButton bAgregarHuesped;
+    private JButton bAgregarHuesped;
 
-    JButton bEliminarHuesped;
+    private JButton bEliminarHuesped;
 
-    JPanel panelSuperior;
+    private JPanel panelSuperior;
 
-    ArrayList<ArrayList<String>> huespedes = new ArrayList<ArrayList<String>>();
+    private ArrayList<ArrayList<String>> huespedes = new ArrayList<ArrayList<String>>();
 
     public ArrayList<ArrayList<String>> getHuespedes() {
         return this.huespedes;
