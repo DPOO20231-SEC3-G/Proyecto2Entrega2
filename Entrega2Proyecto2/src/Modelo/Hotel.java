@@ -134,8 +134,11 @@ public class Hotel {
     public void cargarTarifaServicio(String tipoHabitacion, double valorTarifa, String fechaInicial, String fechaFinal, String dias) throws ParseException {
         this.controladorHabitaciones.cargarTarifaServicio( tipoHabitacion,  valorTarifa,  fechaInicial,  fechaFinal,  dias);
     }
-    public void crearHabitacion(String ubicacion, boolean balcon, boolean vista, boolean cocinaIntegrada, String tipoHabitacion, ArrayList<ArrayList<String>> infoCamas) {
-        this.controladorHabitaciones.crearHabitacion(ubicacion,balcon,vista,cocinaIntegrada,tipoHabitacion,infoCamas);
+    public void crearHabitacion(String ubicacion, boolean balcon, boolean vista, boolean cocinaIntegrada, String tipoHabitacion, ArrayList<ArrayList<String>> infoCamas,
+    float tamañoMts, boolean aire,boolean calefaccion, boolean tv, boolean cafetera, boolean ropaCama, boolean tapetes, boolean plancha,
+    boolean secador, int voltaje, boolean usbA, boolean usbC, boolean desayuno) {
+
+        this.controladorHabitaciones.crearHabitacion(ubicacion,balcon,vista,cocinaIntegrada,tipoHabitacion,infoCamas,tamañoMts, aire,calefaccion,tv,cafetera,ropaCama,tapetes,plancha,secador,voltaje,usbA,usbC,desayuno);
     }
     public void cargarArchivoHabitaciones() throws NumberFormatException, IOException {
         try {

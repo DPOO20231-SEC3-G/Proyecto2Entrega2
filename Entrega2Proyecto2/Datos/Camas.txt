@@ -63,3 +63,11 @@ id;tamaño;cantidadPersonas;soloNiños
 21;individual;1;true
 22;individual;1;false23;queen;3;false
 23;queen;3;true
+24;doble;2;false
+24;doble;2;false
+25;individual;1;false
+25;individual;1;false
+26;queen;3;false
+26;queen;3;false
+26;queen;3;false
+27;individual;1;false

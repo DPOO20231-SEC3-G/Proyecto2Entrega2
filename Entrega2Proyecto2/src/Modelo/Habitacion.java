@@ -13,16 +13,49 @@ public class Habitacion {
     private ArrayList<Cama> camas;
     private ArrayList<Reserva> reservas;
 
-    public Habitacion(int id, String ubicacion, boolean balcon,
-        boolean vista, boolean cocinaIntegrada, String tipoHabitacion){
-            this.id = id;
-            this.ubicacion = ubicacion;
-            this.balcon = balcon;
-            this.vista  = vista;
-            this.cocinaIntegrada = cocinaIntegrada;
-            this.tipoHabitacion = tipoHabitacion;
-            this.reservas = new ArrayList<Reserva>();
-            this.camas = new ArrayList<Cama>();}
+    //Proyecto 3
+
+    private float tamañoMts;
+    private boolean aire;
+    private boolean calefaccion;
+    private boolean tv;
+    private boolean cafetera;
+    private boolean ropaCama;
+    private boolean tapetes;
+    private boolean plancha;
+    private boolean secador;
+    private int voltaje;
+    private boolean usbA;
+    private boolean usbC;
+    private boolean desayuno;
+
+    
+    public Habitacion(int id, String ubicacion, boolean balcon, boolean vista, boolean cocinaIntegrada,
+            String tipoHabitacion, float tamañoMts, boolean aire,
+            boolean calefaccion, boolean tv, boolean cafetera, boolean ropaCama, boolean tapetes, boolean plancha,
+            boolean secador, int voltaje, boolean usbA, boolean usbC, boolean desayuno) {
+        this.id = id;
+        this.ubicacion = ubicacion;
+        this.balcon = balcon;
+        this.vista = vista;
+        this.cocinaIntegrada = cocinaIntegrada;
+        this.tipoHabitacion = tipoHabitacion;
+        this.camas = new ArrayList<Cama>();
+        this.reservas =  new ArrayList<Reserva>();
+        this.tamañoMts = tamañoMts;
+        this.aire = aire;
+        this.calefaccion = calefaccion;
+        this.tv = tv;
+        this.cafetera = cafetera;
+        this.ropaCama = ropaCama;
+        this.tapetes = tapetes;
+        this.plancha = plancha;
+        this.secador = secador;
+        this.voltaje = voltaje;
+        this.usbA = usbA;
+        this.usbC = usbC;
+        this.desayuno = desayuno;
+    }
     public int getId() {
         return this.id;}
     public boolean isBalcon() {
@@ -67,4 +100,45 @@ public class Habitacion {
         }
         return retorno;
     }
+    public float getTamañoMts() {
+        return tamañoMts;
+    }
+    public boolean isAire() {
+        return aire;
+    }
+    public boolean isCalefaccion() {
+        return calefaccion;
+    }
+    public boolean isTv() {
+        return tv;
+    }
+    public boolean isCafetera() {
+        return cafetera;
+    }
+    public boolean isRopaCama() {
+        return ropaCama;
+    }
+    public boolean isTapetes() {
+        return tapetes;
+    }
+    public boolean isPlancha() {
+        return plancha;
+    }
+    public boolean isSecador() {
+        return secador;
+    }
+    public int getVoltaje() {
+        return voltaje;
+    }
+    public boolean isUsbA() {
+        return usbA;
+    }
+    public boolean isUsbC() {
+        return usbC;
+    }
+    public boolean isDesayuno() {
+        return desayuno;
+    }
+
+    
 }

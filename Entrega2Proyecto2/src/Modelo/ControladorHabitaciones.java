@@ -40,7 +40,10 @@ public class ControladorHabitaciones {
             while ((st = br.readLine()) != null) {
                 String[] split = st.split(";");
                 Habitacion habitacion = new Habitacion(Integer.parseInt(split[0]), split[1], Boolean.parseBoolean(split[2]), 
-                    Boolean.parseBoolean(split[3]),Boolean.parseBoolean(split[4]),split[5]);
+                    Boolean.parseBoolean(split[3]),Boolean.parseBoolean(split[4]),split[5],Float.parseFloat(split[6]),Boolean.parseBoolean(split[7]),
+                    Boolean.parseBoolean(split[8]),Boolean.parseBoolean(split[9]),Boolean.parseBoolean(split[10]),Boolean.parseBoolean(split[11]),
+                    Boolean.parseBoolean(split[12]),Boolean.parseBoolean(split[13]),Boolean.parseBoolean(split[14]), Integer.parseInt(split[15]),
+                    Boolean.parseBoolean(split[16]),Boolean.parseBoolean(split[17]),Boolean.parseBoolean(split[18]));
                 this.habitaciones.add(habitacion);}}
         try (BufferedReader br = new BufferedReader(new FileReader(ruta_archivoCamas))) {
             String st;
@@ -52,10 +55,13 @@ public class ControladorHabitaciones {
                 this.habitaciones.get(id-1).addCama(cama);}}
     }
     public void crearHabitacion(String ubicacion, boolean balcon, boolean vista, boolean cocinaIntegrada,
-        String tipoHabitacion, ArrayList<ArrayList<String>> infoCamas) {
+        String tipoHabitacion, ArrayList<ArrayList<String>> infoCamas,float tamañoMts, boolean aire,
+        boolean calefaccion, boolean tv, boolean cafetera, boolean ropaCama, boolean tapetes, boolean plancha,
+        boolean secador, int voltaje, boolean usbA, boolean usbC, boolean desayuno) {
 
             int id = (habitaciones.size()+1);
-            Habitacion habitacion = new Habitacion(id, ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion);
+            Habitacion habitacion = new Habitacion(id, ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion, 
+            tamañoMts, aire,calefaccion,tv,cafetera,ropaCama,tapetes,plancha,secador,voltaje,usbA,usbC,desayuno);
             for(int i=0; i<infoCamas.size();i++){
                 ArrayList<String> info = infoCamas.get(i);
                 Cama cama = new Cama(info.get(0),Integer.parseInt(info.get(1)),Boolean.parseBoolean(info.get(2)));
@@ -86,7 +92,7 @@ public class ControladorHabitaciones {
             }
             this.habitaciones.add(habitacion);
             try {
-                Files.write(Paths.get("./Entrega2Proyecto2/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()).getBytes(), StandardOpenOption.APPEND );
+                Files.write(Paths.get("./Entrega2Proyecto2/Datos/Habitaciones.txt"),("\n"+id+";"+habitacion.getUbicacion()+";"+habitacion.isBalcon()+";"+habitacion.isVista()+";"+habitacion.isCocinaIntegrada()+";"+habitacion.getTipoHabitacion()+";"+habitacion.getTamañoMts()+";"+habitacion.isAire()+";"+habitacion.isCalefaccion()+";"+habitacion.isTv()+";"+habitacion.isCafetera()+";"+habitacion.isRopaCama()+";"+habitacion.isTapetes()+";"+habitacion.isPlancha()+";"+habitacion.isSecador()+";"+habitacion.getVoltaje()+";"+habitacion.isUsbA()+";"+habitacion.isUsbC()+";"+habitacion.isDesayuno()).getBytes(), StandardOpenOption.APPEND );
             } catch (IOException e) {
                 
                 e.printStackTrace();

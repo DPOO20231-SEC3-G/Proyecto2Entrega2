@@ -24,11 +24,26 @@ public class CrearHabitacion extends JDialog implements ActionListener{
 
     private ControladorHabitaciones controladorHabitaciones;
 
+    private JCheckBox aire;
+    private JCheckBox calefaccion;
+    private JCheckBox tv;
+    private JCheckBox cafetera;
+    private JCheckBox ropaCama;
+    private JCheckBox tapetes;
+    private JCheckBox plancha;
+    private JCheckBox secador;
+    private JCheckBox usabA;
+    private JCheckBox usbC;
+    private JCheckBox desayuno;
+
+    private JTextField tamaño;
+    private JTextField voltaje;
+
     public CrearHabitacion(ControladorHabitaciones controladorHabitaciones) {
         this.controladorHabitaciones = controladorHabitaciones;
 
-        setLayout(new GridLayout(6,2));
-        setSize(300, 300);
+        setLayout(new GridLayout(13,2));
+        setSize(400, 600);
     
         botonCerrar = new JButton("Cerrar");
         botonCrear = new JButton("Crear Habitacion");
@@ -38,7 +53,7 @@ public class CrearHabitacion extends JDialog implements ActionListener{
         botonCrear.addActionListener(this);
     
         JTextArea textArea = new JTextArea("Ubicación: "); textArea.setFont(new Font("Arial", Font.BOLD,12)); textArea.setEditable(false);
-        JTextArea hueco = new JTextArea(""); hueco.setEditable(false);
+        aire = new JCheckBox("Aire acondicionado");
         textField = new JTextField();
         textFieldCamas = new JTextField();
         checkBoxVista = new JCheckBox("Vista"); 
@@ -49,11 +64,36 @@ public class CrearHabitacion extends JDialog implements ActionListener{
         JTextArea textArea2 = new JTextArea("Tipo de habitacion: ");textArea2.setEditable(false);
         JTextArea camas = new JTextArea("Numero de camas: "); camas.setEditable(false);
 
+        calefaccion = new JCheckBox("Calefaccion");
+        tv = new JCheckBox("Tiene TV");
+        cafetera = new JCheckBox("Tiene cafetera");
+        ropaCama = new JCheckBox("Tiene ropa de cama");
+        tapetes = new JCheckBox("Tapetes hipoalergenicos");
+        plancha = new JCheckBox("Tiene plancha");
+        secador = new JCheckBox("Tiene secador");
+        usabA = new JCheckBox("Cargador USB-A");
+        usbC = new JCheckBox("Cargador USB-C");
+        desayuno = new JCheckBox("Incluye desayuno");
+
+        JTextArea tamanioJTextArea = new JTextArea("Tamanio en metros cuadrados: "); tamanioJTextArea.setEditable(false);
+        JTextArea volt = new JTextArea("Voltaje AC: "); volt.setEditable(false);
+
+        tamaño = new JTextField();
+        voltaje = new JTextField();
+
         add(textArea); add(textField);
         add(checkBoxVista); add(checkBoxBalcon);
-        add(checkBoxCocina); add(hueco);
+        add(checkBoxCocina); add(aire);
         add(textArea2); add(comboBox);
         add(camas); add(textFieldCamas);
+        add(calefaccion); add(tv);
+        add(cafetera); add(ropaCama);
+        add(tapetes); add(plancha);
+        add(secador); add(usabA);
+        add(usbC); add(desayuno);
+        add(volt); add(voltaje);
+        add(tamanioJTextArea); add(tamaño);
+
         add(botonCrear); add(botonCerrar);
         
 
@@ -94,7 +134,10 @@ public class CrearHabitacion extends JDialog implements ActionListener{
 
             }
 
-            controladorHabitaciones.crearHabitacion(ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion, infoCamas);
+            controladorHabitaciones.crearHabitacion(ubicacion, balcon, vista, cocinaIntegrada, tipoHabitacion, infoCamas,
+            Float.parseFloat(tamaño.getText()),aire.isSelected(),calefaccion.isSelected(),tv.isSelected(),cafetera.isSelected(),
+            ropaCama.isSelected(),tapetes.isSelected(),plancha.isSelected(),secador.isSelected(), Integer.parseInt(voltaje.getText()),usabA.isSelected(),
+            usbC.isSelected(),desayuno.isSelected());
             setVisible(false);
             JOptionPane.showMessageDialog(null, "Habitacion creada exitosamente");
 
