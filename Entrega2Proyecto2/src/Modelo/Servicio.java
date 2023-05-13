@@ -7,11 +7,15 @@ public class Servicio {
     private double precio;
     private boolean pagado = false;
 
-    public Servicio(String nombreServicio, String tipoCobro, String lugarServicio, double precio) {
+    private int ventas;
+
+    public Servicio(String nombreServicio, String tipoCobro, String lugarServicio, double precio, int ventas) {
         this.nombreServicio = nombreServicio;
         this.tipoCobro = tipoCobro;
         this.lugarServicio = lugarServicio;
         this.precio = precio;
+
+        this.ventas = ventas;
     }
     public String getNombreServicio() {
         return nombreServicio;
@@ -38,6 +42,9 @@ public class Servicio {
 
     public void setPagado(boolean pagado) {
         this.pagado = pagado;
+    }
+    public int getVentas() {
+        return ventas;
     }
 
     

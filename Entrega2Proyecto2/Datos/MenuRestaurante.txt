@@ -1,17 +1,17 @@
-nombreServicio;tipoCobro;lugarServicio;tipoProducto;rangoHoras;precio
-Desayuno buffet;persona;Restaurante;comida;6:30-10:00;45000
-Almuerzo buffet;persona;Restaurante;comida;12:00-15:00;50000
-Cena buffet;persona;Restaurante;comida;19:00-22:00;55000
-Café americano;persona;Restaurante;bebida;6:00-23:00;5000
-Café con leche;persona;Restaurante;bebida;6:00-23:00;7000
-Refresco en lata;persona;Restaurante;bebida;6:00-23:00;6000
-Jugo natural;persona;Restaurante;bebida;6:00-23:00;10000
-Hamburguesa con papas;persona;Restaurante;comida;11:00-22:00;20000
-Pizza mediana;persona;Restaurante;comida;11:00-22:00;25000
-Sándwich mixto;persona;Restaurante;comida;11:00-22:00;15000
-Cerveza nacional;persona;Restaurante;bebida;18:00-23:00;8000
-Cerveza importada;persona;Restaurante;bebida;18:00-23:00;500000.0
-Coctel del día;persona;Restaurante;bebida;18:00-23:00;70000.0
-Botella de vino;persona;Restaurante;bebida;18:00-23:00;70000
-Ramen;persona;Restaurante;comida;14:30-15:45;50000.0
-Tomate Asado;persona;Restaurante;comida;14:30-15:45;70000.0
+nombreServicio;tipoCobro;lugarServicio;tipoProducto;rangoHoras;precio;ventas
+Desayuno buffet;persona;Restaurante;comida;6:30-10:00;45000;2
+Almuerzo buffet;persona;Restaurante;comida;12:00-15:00;50000;0
+Cena buffet;persona;Restaurante;comida;19:00-22:00;55000;0
+Café americano;persona;Restaurante;bebida;6:00-23:00;5000;1
+Café con leche;persona;Restaurante;bebida;6:00-23:00;7000;0
+Refresco en lata;persona;Restaurante;bebida;6:00-23:00;6000;0
+Jugo natural;persona;Restaurante;bebida;6:00-23:00;10000;0
+Hamburguesa con papas;persona;Restaurante;comida;11:00-22:00;20000;0
+Pizza mediana;persona;Restaurante;comida;11:00-22:00;25000;0
+Sándwich mixto;persona;Restaurante;comida;11:00-22:00;15000;0
+Cerveza nacional;persona;Restaurante;bebida;18:00-23:00;8000;0
+Cerveza importada;persona;Restaurante;bebida;18:00-23:00;500000.0;0
+Coctel del día;persona;Restaurante;bebida;18:00-23:00;70000.0;0
+Botella de vino;persona;Restaurante;bebida;18:00-23:00;70000;0
+Ramen;persona;Restaurante;comida;14:30-15:45;50000.0;0
+Tomate Asado;persona;Restaurante;comida;14:30-15:45;70000.0;0

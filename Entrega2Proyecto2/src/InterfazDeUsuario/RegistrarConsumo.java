@@ -182,18 +182,20 @@ public class RegistrarConsumo extends JFrame implements ActionListener{
         if(e.getSource().equals(botonconfirmar)){
             Reserva reserva = getReservaSelected();
             if ("Servicio".equals(getNameClass())){
-                int ID = controladorServicios.getIdServicio(nameClass) ;
+                int ID = controladorServicios.getIdServicio(nameServicio) ;
                 Servicio sevricio = controladorServicios.getServicioId(ID);
                 reserva.addServicio(sevricio);   
                 hotel.cargarServicioConsumido(reserva); 
+                hotel.getControladorServicios().registrarVenta("Servicios", sevricio.getNombreServicio());
                 setVisible(false);
                 JOptionPane.showMessageDialog(null, "Consumo de servicio agregado exitosamente");            
             }
             else if("ProductoRestaurante".equals(nameClass)){
-                int ID = controladorServicios.getIdMenu(nameClass) ;
+                int ID = controladorServicios.getIdMenu(nameServicio) ;
                 ProductoRestaurante producto = controladorServicios.getMenuId(ID);
                 reserva.addServicio(producto);
                 hotel.cargarServicioConsumido(reserva);
+                hotel.getControladorServicios().registrarVenta("MenuRestaurante", producto.getNombreServicio());
                 setVisible(false);
                 JOptionPane.showMessageDialog(null, "Consumo de producto agregado exitosamente");
             }

@@ -29,14 +29,14 @@ public class ControladorServicios {
             br.readLine();
             while ((st = br.readLine()) != null) {
                 String[] split = st.split(";");
-                Servicio servicio = new Servicio(split[0],split[1],split[2], Double.parseDouble(split[3]));
+                Servicio servicio = new Servicio(split[0],split[1],split[2], Double.parseDouble(split[3]),Integer.parseInt(split[4]));
                 this.servicios.add(servicio);}}
         try (BufferedReader br = new BufferedReader(new FileReader(archivoMenu))) {
             String st;
             br.readLine();
             while ((st = br.readLine()) != null) {
                 String[] split = st.split(";");
-                ProductoRestaurante productoRestaurante = new ProductoRestaurante(split[0],split[1],split[2],Double.parseDouble(split[5]) ,split[3],split[4]);
+                ProductoRestaurante productoRestaurante = new ProductoRestaurante(split[0],split[1],split[2],Double.parseDouble(split[5]) ,split[3],split[4],Integer.parseInt(split[6]));
                 this.menu.add(productoRestaurante);}}
     }
     public String mostrarServicios(){
@@ -84,19 +84,19 @@ public class ControladorServicios {
         return menu;
     }
     public void crearProductoRestaurante(String nombre, String tipoProducto, String rangoHoras, double precio){
-        ProductoRestaurante productoRestaurante =  new ProductoRestaurante(nombre, "persona", "Restaurante", precio, rangoHoras, tipoProducto);
+        ProductoRestaurante productoRestaurante =  new ProductoRestaurante(nombre, "persona", "Restaurante", precio, rangoHoras, tipoProducto,0);
         menu.add(productoRestaurante);
         try {
-            Files.write(Paths.get("./Entrega2Proyecto2/Datos/MenuRestaurante.txt"),("\n"+nombre+";persona;Restaurante;"+tipoProducto+";"+rangoHoras+";"+precio).getBytes(), StandardOpenOption.APPEND );
+            Files.write(Paths.get("./Entrega2Proyecto2/Datos/MenuRestaurante.txt"),("\n"+nombre+";persona;Restaurante;"+tipoProducto+";"+rangoHoras+";"+precio+";"+0).getBytes(), StandardOpenOption.APPEND );
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void crearServicio(String nombre, String tipoCobro, String lugarServicio, double precio){
-        Servicio servicio =  new Servicio(nombre, tipoCobro,lugarServicio,precio);
+        Servicio servicio =  new Servicio(nombre, tipoCobro,lugarServicio,precio,0);
         servicios.add(servicio);
         try {
-            Files.write(Paths.get("./Entrega2Proyecto2/Datos/Servicios.txt"),("\n"+nombre+";"+tipoCobro+";"+lugarServicio+";"+precio).getBytes(), StandardOpenOption.APPEND );
+            Files.write(Paths.get("./Entrega2Proyecto2/Datos/Servicios.txt"),("\n"+nombre+";"+tipoCobro+";"+lugarServicio+";"+precio+";"+0).getBytes(), StandardOpenOption.APPEND );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -127,7 +127,42 @@ public class ControladorServicios {
                     out.write(line.getBytes(StandardCharsets.UTF_8));
                     if (a != lastIndex) {
                         out.write('\n');}
-}
+                }
+            }
+        
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }     
+    }
+
+    public void registrarVenta(String string, String servicio){
+        int index = 4;
+        if(string.equals("MenuRestaurante")){
+            index = 6;
+        }
+        Path archivoServicios = Paths.get("./Entrega2Proyecto2/Datos/" + string +".txt");
+        List<String> lineas;
+        try {
+            lineas = Files.readAllLines(archivoServicios, StandardCharsets.UTF_8);
+            for (int i = 0; i < lineas.size(); i++) {
+                String[] campos = lineas.get(i).split(";");
+                if (campos[0].equals(servicio)) {
+                    campos[index] = Integer.toString(Integer.parseInt(campos[index]) + 1);
+                    lineas.set(i, String.join(";", campos));
+                    break;
+                }
+            }
+            Files.write(archivoServicios, lineas, StandardCharsets.UTF_8, StandardOpenOption.TRUNCATE_EXISTING);
+
+            try (OutputStream out = new FileOutputStream(archivoServicios.toFile())) {
+                int lastIndex = lineas.size() - 1;
+                for (int a = 0; a < lineas.size(); a++) {
+                    String line = lineas.get(a);
+                    out.write(line.getBytes(StandardCharsets.UTF_8));
+                    if (a != lastIndex) {
+                        out.write('\n');}
+                }
             }
         
         }
