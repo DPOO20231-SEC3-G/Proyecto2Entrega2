@@ -1,0 +1,13 @@
+Reserva 14
+Habitación estandar para 7 personas.
+Rango de fechas 2023/08/22 - 2023/08/23.
+Precio por la habitacion dadas las tarifas: 100000.0
+    Huesped 1:
+        Nombre:hrr
+        Documento:201492
+        Email:h.coca
+        Celular:231
+    Servicios Consumidos:
+    Productos consumidos del restaurante:
+TOTAL A PAGAR: 100000$
+Los Productos con * ya fueron pagados y no son contados en el precio final.

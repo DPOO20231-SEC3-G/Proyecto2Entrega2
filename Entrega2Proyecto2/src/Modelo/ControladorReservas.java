@@ -67,7 +67,7 @@ public class ControladorReservas {
         retorno += "Habitación " + habitacion.getTipoHabitacion() + " para " + habitacion.getEspacio() + " personas.\n";
         retorno += "Rango de fechas " + reserva.getRangoFecha() + ".\n"; 
         retorno += "Precio por la habitacion dadas las tarifas: " + controladorHabitaciones.getPrecioHabitacion(habitacion, reserva.getFechas()) + "\n";
-        double totalPagar = controladorHabitaciones.getPrecioHabitacion(habitacion, reserva.getFechas());
+        
         for(int i=0;i<reserva.getHuespedes().size();i++){
             Huesped huesped = reserva.getHuespedes().get(i);
             retorno += "    Huesped " + (i+1) + ":\n";
@@ -83,7 +83,6 @@ public class ControladorReservas {
             }
             else{
                 retorno += "        " + servicio.getNombreServicio() +": " + servicio.getPrecio() + "$\n";
-                totalPagar += servicio.getPrecio();
             }}
         retorno += "    Productos consumidos del restaurante:\n";
         for(int i=0;i<reserva.getProductoMenuConsumido().size();i++){
@@ -93,13 +92,31 @@ public class ControladorReservas {
             }
             else{
                 retorno += "        " + productoRestaurante.getNombreServicio() +": " + productoRestaurante.getPrecio() + "$\n";
-                totalPagar += productoRestaurante.getPrecio();
         }}
 
-        retorno += "TOTAL A PAGAR: " + totalPagar + "$\nLos Productos con * ya fueron pagados y no son contados en el precio final.";
+        retorno += "TOTAL A PAGAR: " + precioReserva(reserva, controladorHabitaciones) + "$\nLos Productos con * ya fueron pagados y no son contados en el precio final.";
         return retorno;
     }
+    public long precioReserva(Reserva reserva, ControladorHabitaciones controladorHabitaciones){
 
+        long precio = (long)controladorHabitaciones.getPrecioHabitacion(reserva.getHabitacion(), reserva.getFechas());
+        for(int i=0;i<reserva.getServiciosConsumidos().size();i++){
+            Servicio servicio = reserva.getServiciosConsumidos().get(i);
+            if(servicio.isPagado()){
+            }
+            else{
+                precio += servicio.getPrecio();
+            }}
+        for(int i=0;i<reserva.getProductoMenuConsumido().size();i++){
+            ProductoRestaurante productoRestaurante = reserva.getProductoMenuConsumido().get(i);
+            if(productoRestaurante.isPagado()){
+            }
+            else{
+                precio += productoRestaurante.getPrecio();
+        }}
+        return precio;
+
+    }
     public Reserva getReservaId(int id){
         return reservas.get(id-1);
     }
