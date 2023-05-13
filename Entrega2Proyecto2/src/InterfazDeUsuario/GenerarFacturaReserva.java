@@ -41,8 +41,6 @@ public class GenerarFacturaReserva  extends JDialog implements ActionListener {
 
     private JButton bGenerarFactura;
 
-    private JButton bSeleccionado;
-
     private JLabel lSeleccionado;
 
     private ArrayList<Huesped> huespedes;
