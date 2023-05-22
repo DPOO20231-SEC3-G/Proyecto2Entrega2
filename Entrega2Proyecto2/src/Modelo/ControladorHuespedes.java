@@ -60,5 +60,8 @@ public class ControladorHuespedes {
         }
         return str;
     }
-    
+    public ArrayList<Huesped> getHuespedes() {
+        return huespedes;
+    }
+      
 }

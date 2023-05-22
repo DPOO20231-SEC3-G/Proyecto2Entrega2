@@ -117,10 +117,17 @@ public class ControladorReservas {
         return precio;
 
     }
+    public Long consumoRestaurante(Reserva reserva){
+        Long total = Long.valueOf(0);
+        for(ProductoRestaurante productoRestaurante : reserva.getProductoMenuConsumido()){
+            total += (long) productoRestaurante.getPrecio();
+        }
+        return total;
+    }
     public Reserva getReservaId(int id){
         return reservas.get(id-1);
     }
-    public ArrayList<Reserva> getReservaDocumento(int documento){
+    public ArrayList<Reserva> getReservaDocumento(Long documento){
         ArrayList<Reserva> reservasDoc = new ArrayList<Reserva>();
         for(int i=0;i<reservas.size();i++){
             for(int r = 0; r < reservas.get(i).getHuespedes().size();r++){
@@ -196,9 +203,9 @@ public class ControladorReservas {
             return retorno;
         }
 
-        public ArrayList<Reserva> getReservas(){
-            return this.reservas;
-        }
+    public ArrayList<Reserva> getReservas(){
+        return this.reservas;
+    }
     public void cargarReservas(ControladorHabitaciones controladorHabitaciones, ControladorHuespedes controladorHuespedes,
         ControladorServicios controladorServicios) throws IOException, ParseException{
         try (BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyecto2/Datos/Reservas.txt"))) {
