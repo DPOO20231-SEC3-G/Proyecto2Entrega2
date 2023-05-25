@@ -1,8 +1,8 @@
 package InterfazDeUsuario;
 
 import javax.swing.JDialog;
-//import javax.swing.JPanel;
-import javax.swing.JPanel;
+//import javax.swing.void;
+
 
 import Modelo.*;
 
@@ -12,9 +12,16 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 
-
+import org.knowm.xchart.*;
 
 public class VisualizarGraficas extends JDialog{
+	
+	public static void main(String[] args){
+
+		System.out.println("Hello, World!");
+		
+
+	}
     
     public VisualizarGraficas(){
 
@@ -24,7 +31,7 @@ public class VisualizarGraficas extends JDialog{
         setLayout(new GridLayout(1,5));
     }
 
-    public JPanel graficaProductosVendidos(Hotel hotel){
+    public void graficaProductosVendidos(Hotel hotel){
         
         ArrayList<Servicio> servicios = hotel.getControladorServicios().getServicios();
         ArrayList<ProductoRestaurante> productoRestaurantes = hotel.getControladorServicios().getMenu();
@@ -41,10 +48,10 @@ public class VisualizarGraficas extends JDialog{
             vendidos.add(productoRestaurante.getVentas());
         }
 
-        return null;
+   
     }
 
-    public JPanel graficarValorFacturas(Hotel hotel){
+    public void graficarValorFacturas(Hotel hotel){
 
         ArrayList<Reserva> reservas = hotel.getControladorReservas().getReservas();
 
@@ -69,7 +76,7 @@ public class VisualizarGraficas extends JDialog{
         valor.size();
 
 
-        return null;
+   
     }
 
     private ArrayList<Long> promedios(HashMap<Date,ArrayList<Long>> hashMap){
@@ -87,7 +94,7 @@ public class VisualizarGraficas extends JDialog{
             return valor;
     }
 
-    public JPanel graficarConsumoTarifa(Hotel hotel){
+    public void graficarConsumoTarifa(Hotel hotel){
 
         ArrayList<Long> consumos = new ArrayList<Long>();
         ArrayList<Long> tarifa = new ArrayList<Long>();
@@ -100,11 +107,11 @@ public class VisualizarGraficas extends JDialog{
 
         }
 
-        return null;
+ 
 
     }
 
-    public JPanel graficar5HabitacionesMasDemandadas(Hotel hotel){
+    public void graficar5HabitacionesMasDemandadas(Hotel hotel){
 
         ArrayList<Habitacion> habitaciones = hotel.getControladorHabitaciones().getHabitaciones();
         habitaciones.sort(new Comparator<Habitacion>() {
@@ -121,12 +128,12 @@ public class VisualizarGraficas extends JDialog{
         }
 
 
-        return null;
+ 
 
     }
 
 
-    public JPanel graficarHuespedesConMasReservas(Hotel hotel){
+    public void graficarHuespedesConMasReservas(Hotel hotel){
 
         ArrayList<Huesped> huespedes = hotel.getControladorHuespedes().getHuespedes();
 
@@ -137,7 +144,7 @@ public class VisualizarGraficas extends JDialog{
             }
         });
 
-        return null;
+        
     }
         
 
