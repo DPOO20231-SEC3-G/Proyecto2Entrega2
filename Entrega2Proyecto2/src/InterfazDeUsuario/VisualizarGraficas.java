@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.knowm.xchart.*;
+//import org.knowm.xchart.*;
 
 public class VisualizarGraficas extends JDialog{
 	
