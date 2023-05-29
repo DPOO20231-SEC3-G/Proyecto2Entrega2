@@ -200,6 +200,9 @@ public class ControladorHabitaciones {
                 min = tarifa.getValorTarifa();
             }
         }
+        if(min >= 10e10){
+            min = 0;
+        }
         return min;
     }
     public double getPrecioHabitacion(Habitacion habitacion, RangoFechas rangoFechas){

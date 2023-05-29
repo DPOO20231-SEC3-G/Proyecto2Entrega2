@@ -20,6 +20,8 @@ public class InterfazAdministrador extends JFrame implements ActionListener,Wind
     private JButton botonVerDiagramaOcupacion;
     private JButton cambiarUsuario;
 
+    private JButton botonVerGraficas;
+
     private Hotel hotel;
     private Usuario user;
 
@@ -35,7 +37,7 @@ public class InterfazAdministrador extends JFrame implements ActionListener,Wind
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 
-        JPanel panel = new JPanel(new GridLayout(2, 4, 20, 20));
+        JPanel panel = new JPanel(new GridLayout(2, 5, 20, 20));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); 
         
 
@@ -56,6 +58,9 @@ public class InterfazAdministrador extends JFrame implements ActionListener,Wind
         cambiarUsuario = new JButton("Cambiar de usuario");
         cambiarUsuario.addActionListener(this);
 
+        botonVerGraficas = new JButton("Ver gráficas");
+        botonVerGraficas.addActionListener(this);
+
         
         panel.add(botonCrearHabitacion);
         panel.add(botonCargarTarifaHabitacion);
@@ -64,6 +69,9 @@ public class InterfazAdministrador extends JFrame implements ActionListener,Wind
         panel.add(botonCrearProductoRestaurante);
         panel.add(botonConsultarTarifas);
         panel.add(botonVerDiagramaOcupacion);
+
+        panel.add(botonVerGraficas);
+
         panel.add(cambiarUsuario);
         
 
@@ -107,6 +115,10 @@ public class InterfazAdministrador extends JFrame implements ActionListener,Wind
         }   else if(e.getSource() == cambiarUsuario){
             setVisible(false);
             new IniciarInterfaz(true,null);
+        }
+        else if(e.getSource() == botonVerGraficas){
+            new VisualizarGraficas(hotel);
+           
         }
     }
 

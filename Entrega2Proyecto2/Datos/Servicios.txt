@@ -1,16 +1,6 @@
 nombreServicio;tipoCobro;lugarServicio;precio;ventas
 Tour por la ciudad;persona;Hotel;15000;0
 Masaje relajante;persona;Spa;60000.0;0
-Traslado al aeropuerto;grupo;Hotel;100000;0
+Traslado al aeropuerto;grupo;Hotel;100000;1
 Acceso al gimnasio;persona;Gimnasio;10000;0
 Alquiler de bicicletas;grupo;Hotel;25000;0
-Clases de yoga;persona;Gimnasio;15000;0
-Tratamiento facial;persona;Spa;70000;0
-Sesión de sauna;persona;Spa;20000;0
-Sesión de jacuzzi;grupo;Hotel;50000;0
-Paseo en bote;grupo;Playa;400000.0;0
-Tour de compras;persona;Hotel;20000;0
-Clases de natación;persona;Piscina;2.0;0
-Excursión en kayak;grupo;Playa;60000;0
-Sesión de manicura/pedicura;persona;Spa;40000;0
-Sesión de maquillaje;persona;Spa;60000;0
