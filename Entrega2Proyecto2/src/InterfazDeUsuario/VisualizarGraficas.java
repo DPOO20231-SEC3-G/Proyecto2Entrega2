@@ -174,7 +174,6 @@ public class VisualizarGraficas extends JDialog implements ActionListener{
             consumos.add(hotel.getControladorReservas().consumoRestaurante(reserva));
 
             tarifa.add((long) hotel.getControladorHabitaciones().getPrecioHabitacion(reserva.getHabitacion(), reserva.getFechas()));
-            System.out.println(hotel.getControladorHabitaciones().getPrecioHabitacion(reserva.getHabitacion(), reserva.getFechas()));
         }
 
         XYChart xyChart = new XYChartBuilder().build();
