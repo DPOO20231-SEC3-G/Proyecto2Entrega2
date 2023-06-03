@@ -20,15 +20,15 @@ public class ControladorPagos {
             throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException,
             NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
 
-        BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyacto2/Datos/MetodosPagoActivos.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("./Entrega2Proyecto2/Datos/MetodosPagoActivos.txt"));
 
         String linea = br.readLine();
 
         while (linea != null) {
 
-            Class<?> miClase = Class.forName("MetodosPago." + linea);
-            Constructor<?> miConstructor = miClase.getConstructor();
-            Object miInstancia = miConstructor.newInstance();
+            Class<?> miClase = Class.forName("MetodosPago."+linea);
+            Constructor<?> miConstructor = miClase.getDeclaredConstructor(String.class);
+            Object miInstancia = miConstructor.newInstance(linea);
 
             if (miInstancia instanceof FormasPago) {
                 formasDePago.add((FormasPago) miInstancia);
@@ -37,6 +37,8 @@ public class ControladorPagos {
             linea = br.readLine();
 
         }
+        
+        br.close();
 
     }
 
@@ -48,9 +50,7 @@ public class ControladorPagos {
         return this.formasDePago;
     }
 
-    public static void main(String[] args)
-            throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException,
-            SecurityException, IllegalArgumentException, InvocationTargetException, IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
         ControladorPagos controlador = new ControladorPagos();
         controlador.cargarFormasPago();
         boolean continuar = true;
@@ -59,10 +59,10 @@ public class ControladorPagos {
                 System.out.println(i + "." + controlador.getFormasDePago().get(i).getNombre());
                 i++;
             }
+            System.out.print("Ingrese una opcion:");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String cadena = reader.readLine();
-            System.out.print("Ingrese una opcion:");
-            if (cadena == "exit") {
+            if (cadena.equals("exit")) {
                 continuar = false;
             } else {
                 System.out.println(controlador.getFormasDePago().get(Integer.parseInt(cadena)).getNArchivo());

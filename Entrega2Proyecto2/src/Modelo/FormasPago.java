@@ -11,7 +11,10 @@ public abstract class FormasPago {
 
     private String dArchivo;
 
-    public FormasPago() {
+    public FormasPago(String nNombre) {
+    	
+    	this.nombre = nNombre;
+    	this.dArchivo = "./Entrega2Proyecto2/Datos/"+nombre+".txt";
     }
 
     public String realizarPago(String numero, Date vencimiento, String verificacion, int valor,
@@ -62,7 +65,7 @@ public abstract class FormasPago {
     }
 
     public String getNArchivo() {
-        return this.nombre;
+        return this.dArchivo;
     }
 
 }
