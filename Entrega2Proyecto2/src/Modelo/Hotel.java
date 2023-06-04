@@ -26,6 +26,7 @@ public class Hotel {
     private ControladorHuespedes controladorHuespedes;
     private ControladorReservas controladorReservas;
     private ControladorServicios controladorServicios;
+    private ControladorPagos controladorPagos;
 
     public ArrayList<Usuario> usuarios;
     public Hotel(){
@@ -35,6 +36,7 @@ public class Hotel {
         this.controladorHuespedes = new ControladorHuespedes();
         this.controladorReservas = new ControladorReservas();
         this.controladorServicios = new ControladorServicios();
+        this.controladorPagos = new ControladorPagos();
     }
     public void cargarUsuarios() throws IOException{
         File archivo_usuarios = new File("./Entrega2Proyecto2/Datos/Usuarios.txt");
@@ -45,8 +47,10 @@ public class Hotel {
                 String[] split = st.split(";");
                 Usuario usuario = new Usuario(split[0], split[1], split[2], split[3]);
                 this.usuarios.add(usuario);}}}
+
     public ArrayList<Usuario> getUsuarios(){
         return this.usuarios;}
+        
     public Usuario getUsuario(String user, String contraseña){
         Usuario usuario = null;
         for(int i=0;i<this.usuarios.size();i++){
@@ -55,6 +59,11 @@ public class Hotel {
                  usuario = this.usuarios.get(i);}
                 }
         return usuario;}
+
+    public void addUsuario(String name, String user, String password, String rol){
+        Usuario usuario = new Usuario(name, user, password,rol);
+        this.usuarios.add(usuario);}
+
     public ControladorHabitaciones getControladorHabitaciones(){
         return this.controladorHabitaciones;}
     public ControladorHuespedes getControladorHuespedes(){
@@ -63,6 +72,8 @@ public class Hotel {
         return this.controladorReservas;}
     public ControladorServicios getControladorServicios(){
         return this.controladorServicios;}
+    public ControladorPagos getControladorPagos(){
+        return this.controladorPagos;}
 
     // Requerimientos Recepcionista
     public int archivoLog(ArrayList<ArrayList<String>> info) {
