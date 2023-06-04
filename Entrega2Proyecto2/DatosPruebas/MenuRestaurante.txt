@@ -1,0 +1,5 @@
+nombreServicio;tipoCobro;lugarServicio;tipoProducto;rangoHoras;precio;ventas
+Desayuno buffet;persona;Restaurante;comida;6:30-10:00;45000;2
+Almuerzo buffet;persona;Restaurante;comida;12:00-15:00;50000;0
+Cena buffet;persona;Restaurante;comida;19:00-22:00;55000;1
+Café americano;persona;Restaurante;bebida;6:00-23:00;5000;1
