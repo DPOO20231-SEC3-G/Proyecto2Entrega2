@@ -1,0 +1,5 @@
+Transacion Sat Jun 03 17:48:12 COT 2023 :
+Numero de tarjeta: 2345678912345678
+Fecha de vencimiento: Sat Apr 01 00:00:00 COT 2023
+Costo de transaccion: -500000
+La fecha ingresada de vencimiento ingresada ya venció

@@ -1,0 +1,10 @@
+Transaccion Sat Jun 03 17:48:12 COT 2023 :
+Numero de tarjeta: 9090909012345678
+Fecha de vencimiento: Wed Jan 01 00:00:00 COT 2025
+Costo de transaccion: -500000
+El pago se ha realizado con exito
+Transicion Sat Jun 03 17:48:12 COT 2023 :
+Numero de tarjeta: 1122334455667788
+Fecha de vencimiento: Wed Jan 01 00:00:00 COT 2025
+Costo de transaccion: -10000
+La tarjeta no se encuentra en la base de datos (Verifique su numero)

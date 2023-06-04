@@ -27,6 +27,7 @@ public abstract class FormasPago {
                 if (vencimiento.equals(tarjeta.getFecha())) {
                     if (verificacion.equals(tarjeta.getVerificacion())) {
                         if (valor <= tarjeta.getSaldo()) {
+                        	tarjeta.realizarPago(valor);
                             rta = "El pago se ha realizado con exito";
                         } else {
                             rta = "Saldo insuficiente";
@@ -50,7 +51,7 @@ public abstract class FormasPago {
     }
 
     public void guardarMovimiento(String numero, Date vencimiento, String verificacion, int valor, String resultado) {
-        String aImprimir = "Transicion " + new Date().toString() + " :\nNumero de tarjeta: " + numero
+        String aImprimir = "Transaccion " + new Date().toString() + " :\nNumero de tarjeta: " + numero
                 + "\nFecha de vencimiento: " + vencimiento.toString() + "\nCosto de transaccion: -" + valor + "\n"
                 + resultado;
         try (FileWriter escritor = new FileWriter(dArchivo, true)) {
