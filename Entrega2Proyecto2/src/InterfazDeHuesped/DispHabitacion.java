@@ -6,8 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import InterfazDeUsuario.ConsultarOcupacion;
-import InterfazDeUsuario.CrearReserva;
 import Modelo.Hotel;
 
 import java.awt.GridLayout;

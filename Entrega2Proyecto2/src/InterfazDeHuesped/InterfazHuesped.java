@@ -58,11 +58,12 @@ public class InterfazHuesped extends JFrame implements ActionListener {
         }
         else if (e.getSource()==pagarReserva){
         	RealizarPago realizarPago = new RealizarPago(Hotel);
-        	
+        	realizarPago.setVisible(true);
         }
         else if(e.getSource()==cambiarUsuario){
             setVisible(false);
             IniciarInterfazH IniciarInterfazH = new IniciarInterfazH(true,null);
+            IniciarInterfazH.setVisible(true);
         }
         else if(e.getSource() == verDispHabitacion){
             DispHabitacion dispHabitacion = new DispHabitacion(Hotel);

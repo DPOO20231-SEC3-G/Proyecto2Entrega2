@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-import InterfazDeUsuario.CancelarReserva;
+
 import Modelo.ControladorReservas;
 import Modelo.Hotel;
 import Modelo.Huesped;

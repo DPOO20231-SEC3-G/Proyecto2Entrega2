@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
@@ -43,7 +43,6 @@ public class VentanaPago extends JDialog implements ActionListener {
 	private JButton bPagar;
 	private JButton bActualizar;
 	private JPanel gridPanel;
-	private JPanel panel;
 	private ControladorPagos cPagos;
 	private Hotel hotel;
 	private ArrayList<String> metodosPagoString;
@@ -66,7 +65,7 @@ public class VentanaPago extends JDialog implements ActionListener {
 		cHabitaciones = hotel.getControladorHabitaciones();
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		panel = new JPanel();
+		new JPanel();
 
         setLayout(new BorderLayout());
 
