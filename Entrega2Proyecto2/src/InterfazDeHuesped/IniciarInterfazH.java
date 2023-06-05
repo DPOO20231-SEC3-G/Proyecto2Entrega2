@@ -93,7 +93,7 @@ public class IniciarInterfazH extends JFrame implements ActionListener{
             String contraseña = new String(passField.getPassword());
             
 			user = hotel.getUsuario(usuario, contraseña);
-			if( user != null && user.getRol() == "Huesped"){ 
+			if( user != null){ 
 				InterfazHuesped InterfazHuesped = new InterfazHuesped(hotel);
 				setVisible(false);
 				InterfazHuesped.setVisible(true);}

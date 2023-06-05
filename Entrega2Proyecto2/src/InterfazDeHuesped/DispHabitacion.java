@@ -26,7 +26,6 @@ public class DispHabitacion extends JFrame implements ActionListener {
 
         setLayout(new GridLayout(4,2));
         setSize(400, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         botonBuscar = new JButton("Buscar", null);
         botonBuscar.addActionListener(this);
