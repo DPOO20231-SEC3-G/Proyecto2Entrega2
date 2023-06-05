@@ -10,3 +10,22 @@ Lucía Pérez;lucia_perez;letmein;Recepcionista
 Diego González;diego_gonzalez;secret;Empleado
 Sofía García;sofia_garcia;iloveyou;Recepcionista
 Andrés Torres;andres_torres;admin;Empleado
+Sebastian Sanchez;seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+Sebastian Sanchez;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+Sebastian;Seby;letmein;Huesped
+;Seby;letmein;Huesped
+sebastian;Seby;letmein;Huesped
+;Seby;letmein;Huesped
+;Seby;letmein;Huesped

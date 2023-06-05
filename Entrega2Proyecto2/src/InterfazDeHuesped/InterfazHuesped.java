@@ -57,7 +57,8 @@ public class InterfazHuesped extends JFrame implements ActionListener {
             crearReserva.setVisible(true);
         }
         else if (e.getSource()==pagarReserva){
-
+        	RealizarPago realizarPago = new RealizarPago(Hotel);
+        	
         }
         else if(e.getSource()==cambiarUsuario){
             setVisible(false);

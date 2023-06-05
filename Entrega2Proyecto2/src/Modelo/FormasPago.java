@@ -17,7 +17,7 @@ public abstract class FormasPago {
     	this.dArchivo = "./Entrega2Proyecto2/Datos/"+nombre+".txt";
     }
 
-    public String realizarPago(String numero, Date vencimiento, String verificacion, int valor,
+    public String realizarPago(String numero, Date vencimiento, String verificacion, long valor,
             HashMap<String, Tarjeta> info) {
         String rta;
 
@@ -50,7 +50,7 @@ public abstract class FormasPago {
 
     }
 
-    public void guardarMovimiento(String numero, Date vencimiento, String verificacion, int valor, String resultado) {
+    public void guardarMovimiento(String numero, Date vencimiento, String verificacion, long valor, String resultado) {
         String aImprimir = "Transaccion " + new Date().toString() + " :\nNumero de tarjeta: " + numero
                 + "\nFecha de vencimiento: " + vencimiento.toString() + "\nCosto de transaccion: -" + valor + "\n"
                 + resultado;

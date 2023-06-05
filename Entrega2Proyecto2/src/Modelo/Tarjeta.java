@@ -12,7 +12,7 @@ public class Tarjeta {
 
     private String verificacion;
 
-    private int saldo;
+    private long saldo;
 
     public Tarjeta(String nCodigo, String nFecha, String nVerificacion, int nSaldo) throws ParseException {
         codigo = nCodigo;
@@ -34,15 +34,15 @@ public class Tarjeta {
         return this.verificacion;
     }
 
-    public int getSaldo() {
+    public long getSaldo() {
         return this.saldo;
     }
 
-    public void realizarPago(int costo) {
+    public void realizarPago(long costo) {
         saldo -= costo;
     }
 
-    public void realizarReintegro(int costo) {
+    public void realizarReintegro(long costo) {
         saldo += costo;
     }
 
